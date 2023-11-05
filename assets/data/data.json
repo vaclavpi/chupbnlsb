@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Kostel nanebevzetí Panny Marie",
+        "description": "Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.Chrámový komplex Nanebevzetí Panny Marie ve Staré Boleslavi, spojený s legendou o svatém Václavovi, představuje architektonický skvost s bohatou historií a vnitřní výzdobou, a je významným náboženským a kulturním symbolem České republiky.",
+        "img": "assets/img/welcome-2.png",
+        "location": "Komenského, Stará Boleslav",
+        "googlemapyid": "hIJ4R3JerDxC0cRmlQrBJUrf_U"
+    },
+    {
+        "id": 2,
+        "name": "",
+        "description": "",
+        "img": "assets/img/welcome-1.png",
+        "location": "",
+        "googlemapyid": ""
+    },
+    {
+        "id": 3,
+        "name": "",
+        "description": "",
+        "img": "assets/img/welcome-1.png",
+        "location": "",
+        "googlemapyid": ""
+    },
+    {
+        "id": 4,
+        "name": "",
+        "description": "",
+        "img": "assets/img/welcome-1.png",
+        "location": "",
+        "googlemapyid": ""
+    },
+    {
+        "id": 5,
+        "name": "",
+        "description": "",
+        "img": "assets/img/welcome-1.png",
+        "location": "",
+        "googlemapyid": ""
+    }
+]
