@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong/latlong.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MapPage());
 
-class MyApp extends StatefulWidget {
+class MapPage extends StatefulWidget {
   @override
-  State createState() => MyAppState();
+  State createState() => MapState();
 }
 
-class MyAppState extends State<MyApp> {
+class MapState extends State<MapPage> {
   LocationData _currentLocation;
   MapController _mapController = MapController();
 
