@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:honest_guide/cubit/app_cubit_states.dart';
 import 'package:honest_guide/misc/colors.dart';
@@ -189,26 +188,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    BlocProvider.of<AppCubits>(context, listen: false).MapPage();
-                  },
-                  child: ClipRRect(
+                 Container(
+                  margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                      color: Color.fromARGB(255, 20, 54, 76).withOpacity(0.7),
-                      width: double.infinity,
-                      height: 120,
-                      child: GoogleMap(
-                        initialCameraPosition: CameraPosition(
-                          target: LatLng(37.7749, -122.4194),
-                          zoom: 13.0,
-                        ),
-                      ),
+                    color: Color.fromARGB(255, 20, 54, 76).withOpacity(0.7),
+                    ),
+                    width: double.maxFinite,
+                    height: 120,
+                    child: GestureDetector(
+                      onTap: () {
+                        BlocProvider.of<AppCubits>(context).MapPage();
+                      },
                     ),
                   ),
-                ),
 
 
 
