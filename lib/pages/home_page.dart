@@ -59,9 +59,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       indicatorSize: TabBarIndicatorSize.label,
                       indicator: CircleTabIndicator(color: AppColors.fourthColor, radius: 4),
                       tabs: [
-                        Tab(text: "Kulturní památky"),
-                        Tab(text: "Přírodní památky"),
-                        Tab(text: "Další zajímavosti"),
+                        Tab(text: "⛪ kultura"),
+                        Tab(text: "🌳 příroda"),
+                        Tab(text: "☕🍔 občerstvení"),
                       ],
                     ),
                   ),
