@@ -1,15 +1,14 @@
 import 'dart:convert';
-import 'offline_map.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:honest_guide/cubit/app_cubit.dart';
+import 'package:honest_guide/pages/navpages/offline_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:honest_guide/pages/detail_page.dart';
+import 'package:honest_guide/cubit/app_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common/sqlite_api.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:honest_guide/pages/detail_page.dart ';
 
 class MapPage extends StatefulWidget {
   @override
@@ -29,12 +28,12 @@ class _MapPageState extends State<MapPage> {
   }
 
   Future<void> _loadMarkerData() async {
-    // Načtení dat ze souboru data.json
-    String jsonString =
-        await DefaultAssetBundle.of(context).loadString('assets/data/data.json');
+    // Load data from the data.json file
+    String jsonString = await DefaultAssetBundle.of(context)
+        .loadString('assets/data/data.json');
     List<dynamic> jsonData = jsonDecode(jsonString);
 
-    // Uložení dat do seznamu markerData
+    // Save data into the markerData list
     setState(() {
       markerData = List<Map<String, dynamic>>.from(jsonData ?? []);
     });
@@ -47,8 +46,8 @@ class _MapPageState extends State<MapPage> {
     return Scaffold(
       body: FlutterMap(
         options: MapOptions(
-          center: LatLng(50.19459, 14.67228), // Výchozí pozice mapy
-          zoom: 16.0, // Výchozí zoom
+          center: LatLng(50.19459, 14.67228), // Map's default center position
+          zoom: 16.0, // Map's default zoom
         ),
         children: [
           TileLayer(
@@ -62,11 +61,11 @@ class _MapPageState extends State<MapPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Funkce, která se vyvolá po stisknutí tlačítka
-          // Zde můžete přidat kód na návrat na homescreen
+          // Function that is called when the button is pressed
+          // Here you can add the code to navigate back to the homescreen
           BlocProvider.of<AppCubits>(context).goHome();
         },
-        backgroundColor: Colors.blue, // Barva modrá
+        backgroundColor: Colors.blue, // Blue color
         child: Icon(Icons.close),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
@@ -75,8 +74,7 @@ class _MapPageState extends State<MapPage> {
 
   List<Marker> _buildMarkers() {
     return markerData
-        .where((data) =>
-            data['latitude'] != null && data['longitude'] != null)
+        .where((data) => data['latitude'] != null && data['longitude'] != null)
         .map((data) {
       double latitude = data['latitude'] ?? 0.0;
       double longitude = data['longitude'] ?? 0.0;
@@ -85,14 +83,15 @@ class _MapPageState extends State<MapPage> {
         width: 30.0,
         height: 30.0,
         point: LatLng(latitude, longitude),
-        child: builder: (BuildContext context){
-
-        },
-        child: Container(
-          child: Icon(
-            Icons.location_on,
-            color: Colors.red,
-          ),
+        child: build(
+          (BuildContext context) {
+            return Container(
+              child: Icon(
+                Icons.location_on,
+                color: Colors.red,
+              ),
+            );
+          } as BuildContext,
         ),
       );
     }).toList();

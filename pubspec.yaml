@@ -97,6 +97,7 @@ flutter:
   - assets/img/trophy.png
   - assets/img/map.png
   - assets/img/podcast.png
+  - assets/img/znak.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
