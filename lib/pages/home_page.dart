@@ -16,15 +16,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   var images = {
     "podcast.png": "Podcasty",
-    "clapperboard.png": "Videa",
-    "trophy.png": "Soutěže",
     "houses.png": "Město",
     "info.png": "O aplikaci",
   };
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 4, vsync: this);
+    TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(body: BlocBuilder<AppCubits, CubitStates>(
       builder: (context, state) {
         if (state is LoadedState) {
@@ -135,25 +133,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           child: Align(
                             alignment: Alignment.center,
                             child: Text("☕🍔 občerstvení"),
-                          ),
-                        ),
-                      ),
-                      Tab(
-                        child: Container(
-                          height: 25,
-                          width: 160,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(90, 20, 54, 76),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
-                            ),
-                          ),
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text("🚩 další"),
                           ),
                         ),
                       ),
@@ -320,6 +299,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 }
 
+// ignore: must_be_immutable
 class CircleTabIndicator extends Decoration {
   final Color color;
   double radius;

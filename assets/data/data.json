@@ -21,26 +21,8 @@
     },
     {
         "id": 3,
-        "name": "",
-        "description": "",
-        "img": "assets/img/welcome-1.png",
-        "location": "",
-        "googlemapyid": "",
-        "GPS": ""
-    },
-    {
-        "id": 4,
-        "name": "",
-        "description": "",
-        "img": "assets/img/welcome-1.png",
-        "location": "",
-        "googlemapyid": "",
-        "GPS": ""
-    },
-    {
-        "id": 5,
-        "name": "",
-        "description": "",
+        "name": "Prostě jméno",
+        "description": "Prostě popisek",
         "img": "assets/img/welcome-1.png",
         "location": "",
         "googlemapyid": "",

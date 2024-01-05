@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:honest_guide/pages/navpages/offline_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:honest_guide/pages/detail_page.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:sqflite_common/sqlite_api.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 class MapPage extends StatefulWidget {
@@ -35,7 +32,7 @@ class _MapPageState extends State<MapPage> {
 
     // Save data into the markerData list
     setState(() {
-      markerData = List<Map<String, dynamic>>.from(jsonData ?? []);
+      markerData = List<Map<String, dynamic>>.from(jsonData);
     });
 
     await offlineMapController.downloadMapTiles();

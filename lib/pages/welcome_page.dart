@@ -15,14 +15,11 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  List<String> images = ["welcome-1.png"];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
         scrollDirection: Axis.vertical,
-        itemCount: images.length,
         itemBuilder: (_, index) {
           return Stack(
             children: [
@@ -31,7 +28,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: double.maxFinite,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/img/" + images[index]),
+                    image: AssetImage("assets/img/welcome-2.png"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -50,7 +47,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: MediaQuery.of(context).size.height / 2,
+                  height: MediaQuery.of(context).size.height / 3,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius:
@@ -66,16 +63,12 @@ class _WelcomePageState extends State<WelcomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             AppLargeText(
-                              text: "Chytrý průvodce",
+                              text: "Šikovný průvodce",
                               color: AppColors.fourthColor,
+                              size: 30,
                             ),
                             AppBoldText(
-                              text: "Brandýsem nad Labem",
-                              color: AppColors.fourthColor,
-                              size: 20,
-                            ),
-                            AppBoldText(
-                              text: "- Starou Boleslaví",
+                              text: "Brandýsem nad Labem - Starou Boleslaví",
                               color: AppColors.fourthColor,
                               size: 20,
                             ),
@@ -84,7 +77,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             ),
                             AppText(
                               text:
-                                  "Objevte kouzlo Brnadýsa nad Labem - Staré Boleslavi s Vaším chytrým průvodcem, který Vás provede tajemnými zákoutími této historické perly.",
+                                  "Objevte kouzlo Brandýsa nad Labem - Staré Boleslavi s tímto kapesním průvodcem, který Vás provede vybranými místy.",
                               color: Colors.black,
                               size: 18,
                             ),
@@ -96,11 +89,16 @@ class _WelcomePageState extends State<WelcomePage> {
                                 BlocProvider.of<AppCubits>(context).getData();
                               },
                               child: Container(
-                                width: 200,
+                                width: 350,
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment
+                                      .end, // Align the button to the right
                                   children: [
-                                    ResponsiveButton(
-                                      width: 120,
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: ResponsiveButton(
+                                        width: double.maxFinite,
+                                      ),
                                     )
                                   ],
                                 ),
