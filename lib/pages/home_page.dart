@@ -252,7 +252,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 width: double.maxFinite,
                 margin: const EdgeInsets.only(left: 20),
                 child: ListView.builder(
-                    itemCount: 5,
+                    itemCount: 3,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (_, index) {
                       return Container(
