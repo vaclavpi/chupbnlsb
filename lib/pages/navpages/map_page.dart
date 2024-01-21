@@ -6,6 +6,8 @@ import 'package:latlong2/latlong.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:honest_guide/model/data_model.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MapPage extends StatefulWidget {
   @override
@@ -15,6 +17,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   List<Map<String, dynamic>> markerData = [];
   late OfflineMapController offlineMapController;
+  late LatLng currentLocation;
 
   @override
   void initState() {
@@ -22,6 +25,7 @@ class _MapPageState extends State<MapPage> {
     sqfliteFfiInit();
     offlineMapController = OfflineMapController();
     _loadMarkerData();
+    _getCurrentLocation(); // Get the current location when the widget is initialized
   }
 
   Future<void> _loadMarkerData() async {
@@ -36,6 +40,15 @@ class _MapPageState extends State<MapPage> {
     });
 
     await offlineMapController.downloadMapTiles();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high); // Get the current location
+    setState(() {
+      currentLocation = LatLng(
+          position.latitude, position.longitude); // Update the current location
+    });
   }
 
   @override
@@ -69,6 +82,18 @@ class _MapPageState extends State<MapPage> {
     );
   }
 
+  Marker _buildCurrentLocationMarker(LatLng currentLocation) {
+  return Marker(
+    width: 30.0,
+    height: 30.0,
+    point: currentLocation,
+    child: Icon(
+      Icons.location_on,
+      color: Colors.blue, // Blue color for the current location marker
+    ),
+  );
+}
+
   List<Marker> _buildMarkers() {
     return markerData
         .where((data) => data['latitude'] != null && data['longitude'] != null)
@@ -76,19 +101,20 @@ class _MapPageState extends State<MapPage> {
       double latitude = data['latitude'] ?? 0.0;
       double longitude = data['longitude'] ?? 0.0;
 
+      DataModel dataModel = DataModel.fromJson(data);
+
       return Marker(
         width: 30.0,
         height: 30.0,
         point: LatLng(latitude, longitude),
-        child: build(
-          (BuildContext context) {
-            return Container(
-              child: Icon(
-                Icons.location_on,
-                color: Colors.red,
-              ),
-            );
-          } as BuildContext,
+        child: GestureDetector(
+          onTap: () {
+            BlocProvider.of<AppCubits>(context).DetailPage(dataModel);
+          },
+          child: Icon(
+            Icons.location_on,
+            color: Colors.red,
+          ),
         ),
       );
     }).toList();

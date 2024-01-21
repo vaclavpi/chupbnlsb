@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:honest_guide/cubit/app_cubit_states.dart';
 import 'package:honest_guide/widgets/app_text.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:honest_guide/widgets/app_large_bold_text.dart';
 import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/misc/colors.dart';

@@ -6,6 +6,7 @@ import 'package:honest_guide/pages/detail_page.dart';
 import 'package:honest_guide/pages/home_page.dart';
 import 'package:honest_guide/pages/navpages/map_page.dart';
 import 'package:honest_guide/pages/welcome_page.dart';
+import 'package:honest_guide/pages/navpages/about_page.dart';
 
 class AppCubitLogics extends StatefulWidget {
   const AppCubitLogics({super.key});
@@ -19,22 +20,31 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<AppCubits, CubitStates>(
-        builder: (context, state){
-          if(state is DetailState){
+        builder: (context, state) {
+          if (state is DetailState) {
             return const DetailPage();
-          }if(state is WelcomeState){
+          }
+          if (state is WelcomeState) {
             return const WelcomePage();
-          }if(state is LoadedState){
+          }
+          if (state is LoadedState) {
             return const HomePage();
-          }if(state is MapState){
+          }
+          if (state is AboutPageState) {
+            return AboutPage();
+          }
+          if (state is MapState) {
             return MapPage();
-          }if(state is LoadingState){
-            return const Center(child: CircularProgressIndicator(),);
-          }else{
+          }
+          if (state is LoadingState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
             return Container();
           }
         },
       ),
-      );
-    }
+    );
   }
+}

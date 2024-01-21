@@ -53,6 +53,7 @@ dependencies:
   sqflite: ^2.0.0
   sqflite_common_ffi: ^2.3.0+3
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -86,18 +87,14 @@ flutter:
   - assets/img/welcome-2.png
   - assets/img/welcome-3.png
   - assets/img/button-arrow.png
-  - assets/img/historicke-prameny.png
-  - assets/img/bnl.png
-  - assets/img/bmc_qr.png
   - assets/data/data.json
   - assets/img/logo.jpg
-  - assets/img/info.png
-  - assets/img/houses.png
-  - assets/img/clapperboard.png
-  - assets/img/trophy.png
-  - assets/img/map.png
-  - assets/img/podcast.png
+  - assets/img/instagram.png
+  - assets/img/facebook.png
+  - assets/img/web.png
+  - assets/img/coffee-cup.png
   - assets/img/znak.png
+  - assets/img/mapilu.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
