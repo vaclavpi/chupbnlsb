@@ -4,7 +4,6 @@ import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:honest_guide/cubit/app_cubit_states.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:honest_guide/widgets/app_large_bold_text.dart';
-import 'package:honest_guide/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

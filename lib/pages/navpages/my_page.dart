@@ -7,7 +7,9 @@ class MyPage extends StatelessWidget {
 
   _launchCoffeeWebsite() async {
     const url = 'https://buymeacoffee.com/vapi';
+    // ignore: deprecated_member_use
     if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
       await launch(url);
     } else {
       throw 'Could not launch $url';
@@ -22,9 +24,9 @@ class MyPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/img/bmc_qr.png', 
+              'assets/img/bmc_qr.png',
               width: 200,
-              height: 200, 
+              height: 200,
             ),
             SizedBox(height: 16),
             Text(
@@ -37,7 +39,10 @@ class MyPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.fourthColor, // Barva tlačítka
               ),
-              child: Text("Chci podpořit!", style: TextStyle(fontSize: 24),),
+              child: Text(
+                "Chci podpořit!",
+                style: TextStyle(fontSize: 24),
+              ),
             ),
           ],
         ),
