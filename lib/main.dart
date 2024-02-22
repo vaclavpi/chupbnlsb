@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
@@ -19,23 +18,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override¨7
-  
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Brandýs nad Labem - Stará Bolesalv',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-
-      primarySwatch:  Colors.grey,
-      ),
-      home:BlocProvider<AppCubits>(
-        create:(context)=>AppCubits(
-          data:DataServices(),
+        title: 'Brandýs nad Labem - Stará Bolesalv',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
         ),
-        child:const AppCubitLogics(),
-      )
-    );
+        home: BlocProvider<AppCubits>(
+          create: (context) => AppCubits(
+            data: DataServices(),
+          ),
+          child: const AppCubitLogics(),
+        ));
   }
 }
-
