@@ -2,7 +2,7 @@
 
 ## O Aplikaci
 
-Tato aplikace je výsledkem ročníkového projektu Václava Pisingera [Odkaz na Instagram](https://www.instagram.com/vena.vapi/) a je podporována městem Brandýs nad Labem - Stara Boleslav.
+Tato aplikace je výsledkem ročníkového projektu [Václava Pisingera](https://www.instagram.com/vena.vapi/) a je podporována městem Brandýs nad Labem - Stara Boleslav.
 
 ## Co je Chytrý upřímný průvodce?
 
