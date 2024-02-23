@@ -56,7 +56,9 @@ class _MapPageState extends State<MapPage> {
     return Scaffold(
       body: FlutterMap(
         options: MapOptions(
+          // ignore: deprecated_member_use
           center: LatLng(50.19459, 14.67228), // Map's default center position
+          // ignore: deprecated_member_use
           zoom: 16.0, // Map's default zoom
         ),
         children: [
@@ -81,18 +83,6 @@ class _MapPageState extends State<MapPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
   }
-
-  Marker _buildCurrentLocationMarker(LatLng currentLocation) {
-  return Marker(
-    width: 30.0,
-    height: 30.0,
-    point: currentLocation,
-    child: Icon(
-      Icons.location_on,
-      color: Colors.blue, // Blue color for the current location marker
-    ),
-  );
-}
 
   List<Marker> _buildMarkers() {
     return markerData
