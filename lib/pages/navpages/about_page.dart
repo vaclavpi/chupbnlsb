@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:honest_guide/misc/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatefulWidget {
@@ -8,97 +10,212 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  final String instagramUrl = 'https://www.instagram.com/vena.vapi/';
-  final String facebookUrl = 'https://www.facebook.com';
-  final String githubUrl = 'https://www.github.com';
-  final String buymeacoffeeUrl = 'https://www.buymeacoffee.com';
+  final List<Map<String, String>> socialData = [
+    {
+      "name": "Facebook",
+      "icon": "assets/img/facebook.png",
+      "url": "https://www.facebook.com"
+    },
+    {
+      "name": "Web",
+      "icon": "assets/img/web.png",
+      "url": "https://www.twitter.com"
+    },
+    {
+      "name": "Instagram",
+      "icon": "assets/img/instagram.png",
+      "url": "https://www.instagram.com"
+    },
+    // Add more social networks as needed
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Václav Pisinger'),
-        backgroundColor: AppColors.navColor,
-      ),
-      body: Container(
-        decoration: BoxDecoration(color: Colors.white),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: <Widget>[
-              _buildGlassmorphicContainer(
-                child: Text(
-                  'Tuto aplikaci jsem vytvořil a následně publikoval (2024) jako svůj ročníkový projekt na gymnaziálním bojišti. Teď tento géniovský projekt usnadňuje objevování místa, kde se skrývají nejen dramatické příběhy a legendy, ale i několik zapomenutých zvratů a momentů, které by dokázaly okouzlit i samotného Harryho Pottera.',
-                  style: TextStyle(fontSize: 18),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 100,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Chytrý upřímný průvodce Brandýsem nad Labem - Starou Boleslaví',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: socialData.map((social) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: () => _launchURL(social['url']!),
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset(
+                            social['icon']!,
+                            width: 50,
+                            height: 50,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            social['name']!,
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'O projektu',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Tento projekt je výsledkem ročníkové práce Václava Pisingera, a je podporována městem Brandýs nad Labem - Stara Boleslav.\n\n',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Co je Chytrý upřímný průvodce?',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Chytrý upřímný průvodce Brandýsem nad Labem - Starou Boleslaví je nejen mobilní aplikace navržená k poskytování užitečných informací a tipů návštěvníkům a obyvatelům Brandýsa nad Labem - Staré Boleslavi. Tento kapesní průvodce nabízí širokou škálu funkcí a možností prozkoumávání města a objevování jeho zajímavostí.\n\n',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Funkce aplikace',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Interaktivní mapy: 🗺️ Podrobné mapy města s označením turistických atrakcí, restaurací, obchodů a dalších zajímavých míst.\n'
+                'Užitečné informace: ℹ️ Kompletní informace o historii, kultuře a zajímavostech města.\n'
+                'Tipy a doporučení: 💡 Doporučení od místních obyvatel a tipy na místa, která byste neměli při návštěvě města minout.\n'
+                'Možnost zpětné vazby: 📝 Možnost sdílet své zážitky a hodnocení míst přímo v aplikaci.\n\n',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Dostupnost',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Chytrý upřímný průvodce je aktuálně dostupný ve třech verzích:\n'
+                'Android aplikace: 📱 Stáhněte si aplikaci z Google Play Store.\n'
+                'Windows aplikace: 💻 Stažení dostupné na stránce Windows Store.\n'
+                'Webová stránka: www.example.com pro přístup k aplikaci z libovolného prohlížeče.\n\n',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Kontakt',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  children: [
+                    TextSpan(
+                      text:
+                          'Pro více informací o aplikaci nebo pokud máte dotazy, kontaktujte mě na ',
+                    ),
+                    TextSpan(
+                      text: 'emailová adresa',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Colors.blue,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          launch('mailto:info@example.com');
+                        },
+                    ),
+                    TextSpan(
+                      text: ' nebo navštivte mé ',
+                    ),
+                    TextSpan(
+                      text: 'webové stránky.',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Colors.blue,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          launch('vaclavpi.github.io');
+                        },
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  _buildClickableImage(
-                      'assets/img/instagram.png', instagramUrl),
-                  _buildClickableImage('assets/img/facebook.png', facebookUrl),
-                  _buildClickableImage('assets/img/web.png', githubUrl),
-                  _buildClickableImage(
-                      'assets/img/coffee-cup.png', buymeacoffeeUrl),
-                ],
-              ),
-              SizedBox(height: 20),
-              _buildGlassmorphicContainer(
-                child: Text(
-                  'Rozvoj této aplikace podporuje město Brandýs nad Labem - Stará Boleslav.',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Function that is called when the button is pressed
+          // Here you can add the code to navigate back to the homescreen
+          BlocProvider.of<AppCubits>(context).goHome();
+        },
+        backgroundColor: Colors.blue, // Blue color
+        child: Icon(Icons.close),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
   }
 
-  void _launchURL(String url) async {
-    // ignore: deprecated_member_use
+  Future<void> _launchURL(String url) async {
     if (await canLaunch(url)) {
-      // ignore: deprecated_member_use
       await launch(url);
     } else {
-      throw 'Nelze otevřít $url';
+      throw 'Could not launch $url';
     }
-  }
-
-  Widget _buildGlassmorphicContainer({required Widget child}) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Color.fromARGB(255, 20, 54, 76).withOpacity(0.1),
-        border: Border.all(
-          color: Color.fromARGB(255, 20, 54, 76).withOpacity(0.2),
-        ),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 24,
-            spreadRadius: 16,
-            color: Color.fromARGB(255, 20, 54, 76).withOpacity(0.1),
-          ),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: child,
-      ),
-    );
-  }
-
-  Widget _buildClickableImage(String imagePath, String url) {
-    return InkWell(
-      onTap: () => _launchURL(url),
-      child: Image.asset(
-        imagePath,
-        width: 40,
-        height: 40,
-      ),
-    );
   }
 }

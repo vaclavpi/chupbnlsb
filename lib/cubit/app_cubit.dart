@@ -36,4 +36,8 @@ class AppCubits extends Cubit<CubitStates> {
   goAbout() {
     emit(AboutPageState());
   }
+
+  goPodcast() {
+    emit(PodcastPageState());
+  }
 }

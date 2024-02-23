@@ -139,85 +139,120 @@ class _DetailPageState extends State<DetailPage> {
               Positioned(
                 top: 310,
                 child: Container(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
-                  width: MediaQuery.of(context).size.width,
-                  height: 500,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                              child: AppLargeText(
-                            text: detail.places.name,
-                            color: AppColors.fourthColor,
-                            size: 30,
-                          )),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.location_on,
-                            color: AppColors.thirdColor,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          AppBoldText(
-                              text: detail.places.location,
-                              size: 14,
-                              color: AppColors.thirdColor)
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          buildStarRating(starRating),
-                          Text(
-                            '$starRating (Mapy Google)',
-                            style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.thirdColor),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      AppLargeText(
-                        text: "O tomto objektu:",
-                        color: AppColors.thirdColor,
-                        size: 23,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Expanded(
-                        child: SingleChildScrollView(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, top: 30),
+                    width: MediaQuery.of(context).size.width,
+                    height: 500,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                                child: AppLargeText(
+                              text: detail.places.name,
+                              color: AppColors.fourthColor,
+                              size: 30,
+                            )),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: AppColors.thirdColor,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            AppBoldText(
+                                text: detail.places.location,
+                                size: 14,
+                                color: AppColors.thirdColor)
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            buildStarRating(starRating),
+                            Text(
+                              '$starRating (Mapy Google)',
+                              style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.thirdColor),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        AppLargeText(
+                          text: "O tomto objektu:",
+                          color: AppColors.thirdColor,
+                          size: 23,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
                             scrollDirection: Axis.vertical,
                             child: AppText(
                                 text: detail.places.description,
-                                color: AppColors.mainColor)),
-                      )
-                    ],
-                  ),
-                ),
-              )
+                                color: AppColors.mainColor),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Container(
+                          height: 100, // nebo libovolná jiná hodnota
+                          padding: EdgeInsets.only(bottom: 0),
+                          alignment: Alignment.bottomCenter, // Padding na spo
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                    width:
+                                        8), // Mezera na začátku seznamu obrázků
+                                buildImage(context, detail.places.img),
+                                SizedBox(width: 8), // Mezera mezi obrázky
+                                buildImage(context, detail.places.img1),
+                                SizedBox(width: 8), // Mezera mezi obrázky
+                                buildImage(context, detail.places.img2),
+                                SizedBox(width: 8), // Mezera mezi obrázky
+                                buildImage(context, detail.places.img3),
+                                SizedBox(width: 8), // Mezera mezi obrázky
+                                buildImage(context, detail.places.img4),
+                                SizedBox(width: 8), // Mezera mezi obrázky
+                                buildImage(context, detail.places.img5),
+                                SizedBox(width: 8),
+                                buildImage(context, detail.places.img6),
+                                SizedBox(width: 8),
+                                buildImage(context, detail.places.img7),
+                                SizedBox(width: 8),
+                                buildImage(context, detail.places.img8),
+                                SizedBox(width: 8),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
             ],
           ),
         ),
@@ -241,6 +276,42 @@ class _DetailPageState extends State<DetailPage> {
     }
     return Row(
       children: stars,
+    );
+  }
+}
+
+Widget buildImage(BuildContext context, String? imagePath) {
+  if (imagePath != null) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (_) => AlertDialog(
+              content: Image.asset(imagePath),
+              contentPadding: EdgeInsets.zero,
+            ),
+          );
+        },
+        child: Container(
+          width: 100,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(imagePath),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+    );
+  } else {
+    // Pokud je imagePath null, můžete vrátit placeholder nebo jiný fallback obsah
+    return Container(
+      width: 100,
+      height: 100,
+      color: const Color.fromARGB(255, 255, 255, 255), // Placeholder barva
     );
   }
 }

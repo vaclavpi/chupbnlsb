@@ -65,15 +65,15 @@ class _WelcomePageState extends State<WelcomePage> {
                             AppLargeText(
                               text: "Šikovný průvodce",
                               color: AppColors.fourthColor,
-                              size: 30,
+                              size: 25,
                             ),
                             AppBoldText(
                               text: "Brandýsem nad Labem - Starou Boleslaví",
                               color: AppColors.fourthColor,
-                              size: 20,
+                              size: 18,
                             ),
                             SizedBox(
-                              height: 25,
+                              height: 15,
                             ),
                             AppText(
                               text:

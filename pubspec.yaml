@@ -52,6 +52,8 @@ dependencies:
   sqflite: ^2.3.2
   sqflite_common_ffi: ^2.3.2+1
   awesome_notifications: ^0.9.2
+  timezone: ^0.9.2
+  rxdart: ^0.27.7
 
 
 dev_dependencies:
@@ -95,6 +97,8 @@ flutter:
   - assets/img/coffee-cup.png
   - assets/img/znak.png
   - assets/img/mapilu.jpeg
+  - assets/img/vapi.jpeg
+  - assets/img/podcasty.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

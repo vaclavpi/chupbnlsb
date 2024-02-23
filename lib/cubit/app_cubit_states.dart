@@ -18,6 +18,11 @@ class AboutPageState extends CubitStates {
   List<Object?> get props => [];
 }
 
+class PodcastPageState extends CubitStates {
+  @override
+  List<Object?> get props => [];
+}
+
 class LoadingState extends CubitStates {
   @override
   List<Object?> get props => [];
