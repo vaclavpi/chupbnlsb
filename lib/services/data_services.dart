@@ -6,7 +6,8 @@ class DataServices {
   Future<List<DataModel>> getInfo() async {
     try {
       // Přečtěte obsah souboru data.json
-      final String response = await rootBundle.loadString('assets/data/data.json');
+      final String response =
+          await rootBundle.loadString('assets/data/data.json');
 
       // Dekódujte JSON data do seznamu
       final List<dynamic> list = json.decode(response);

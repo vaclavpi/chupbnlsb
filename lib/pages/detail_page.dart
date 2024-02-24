@@ -8,7 +8,7 @@ import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/misc/colors.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+  const DetailPage({super.key, String? imageUrl, String? name});
 
   @override
   State<DetailPage> createState() => _DetailPageState();

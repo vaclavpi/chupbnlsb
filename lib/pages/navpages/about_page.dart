@@ -174,7 +174,7 @@ class _AboutPageState extends State<AboutPage> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          launch('mailto:info@example.com');
+                          launchUrl(Uri.parse('mailto:info@example.com'));
                         },
                     ),
                     TextSpan(
@@ -188,7 +188,7 @@ class _AboutPageState extends State<AboutPage> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          launch('vaclavpi.github.io');
+                          launchUrl(Uri.parse('https://vaclavpi.github.io/'));
                         },
                     ),
                   ],
@@ -212,8 +212,8 @@ class _AboutPageState extends State<AboutPage> {
   }
 
   Future<void> _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       throw 'Could not launch $url';
     }

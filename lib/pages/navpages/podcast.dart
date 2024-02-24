@@ -83,9 +83,9 @@ class PodcastyStranka extends StatelessWidget {
 }
 
 // Metoda pro otevření odkazu v prohlížeči
-_openUrl(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
+Future<void> _openUrl(String url) async {
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url));
   } else {
     throw 'Nelze otevřít $url';
   }
