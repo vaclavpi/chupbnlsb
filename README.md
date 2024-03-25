@@ -2,7 +2,7 @@
 
 ## O projektu
 
-Tento projekt je výsledkem ročníkové práce [Václava Pisingera](https://www.instagram.com/vaclavpisinger/), a je podporován městem [Brandýs nad Labem - Stara Boleslav](https://www.brandysko.cz/). Kdo by si pomyslel, že za touhle aplikací stojí jen jeden šílený nadšenec a místní radnice s dostatkem kávy?
+Tento projekt je výsledkem ročníkové práce [Václava Pisingera](https://vaclavpi.github.io/), a je podporován městem [Brandýs nad Labem - Stara Boleslav](https://www.brandysko.cz/). Kdo by si pomyslel, že za touhle aplikací stojí jen jeden šílený nadšenec a místní radnice s dostatkem kávy?
 
 ## Co je Chytrý upřímný průvodce?
 

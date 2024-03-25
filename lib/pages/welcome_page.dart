@@ -34,12 +34,12 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
               ),
               Positioned(
-                top: 40,
-                right: 20,
+                top: 1, // ponechat původní pozici
+                left: MediaQuery.of(context).size.width / 2 -
+                    100, // Umístění na střed horizontálně
                 child: Image.asset(
-                  'assets/img/znak.png',
-                  width: 50,
-                  height: 50,
+                  'assets/img/ckl.png',
+                  width: 200,
                 ),
               ),
               Positioned(
