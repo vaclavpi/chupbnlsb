@@ -6,7 +6,7 @@ Tento projekt je výsledkem ročníkové práce [Václava Pisingera](https://vac
 
 ## Co je Chytrý upřímný průvodce?
 
-Tohle není jen další taškařice, kterou si stažení, a pak zapomenutí! Chytrý upřímný průvodce Brandýsem nad Labem - Starou Boleslaví je jako tvůj nejlepší kámoš, který ti říká, kde najít to nejlepší jídlo, nejzajímavější historické památky a tajné skrýše města. A to všechno s takovým humorem, že si budete přát, aby měl i vlastní stand-up show!
+Tohle není jen další taškařice, kterou si stáhnete, a pak zapomenete odinstalovat! Chytrý upřímný průvodce Brandýsem nad Labem - Starou Boleslaví je jako tvůj nejlepší kámoš, který ti říká, kde najít to nejlepší jídlo, nejzajímavější historické památky a tajné skrýše města. 
 
 ## Funkce aplikace
 
