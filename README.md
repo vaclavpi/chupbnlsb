@@ -19,8 +19,8 @@ Tohle není jen další taškařice, kterou si stáhnete, a pak zapomenete odins
 
 Chytrý upřímný průvodce je aktuálně dostupný ve třech verzích:
 
-- **Android aplikace:** 📱 Stáhněte si aplikaci z Google Play Store. Stačí pár kliknutí a jste na cestě k dobrodružství!
-- **Windows aplikace:** 💻 Stažení dostupné na stránce Windows Store. Ano, i pro ty, kdo mají rádi své Windows!
+- **Android aplikace:** 📱 Stáhněte si aplikaci z zde. Stačí pár kliknutí a jste na cestě k dobrodružství!
+- **Windows aplikace:** 💻 Stažení dostupné opět zde na GitHubu. Ano, i pro ty, kdo mají rádi své Windows!
 - **Webová stránka:** 🌐 Navštivte naši webovou stránku pro přístup k aplikaci z libovolného prohlížeče. Kdo říká, že dobrodružství nemůže začít u počítače?
 
 ## Kontakt
