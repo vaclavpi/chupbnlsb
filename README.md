@@ -11,7 +11,7 @@ Tohle není jen další taškařice, kterou si stažení, a pak zapomenutí! Chy
 ## Funkce aplikace
 
 - **Interaktivní mapy:** 🗺️ Podrobné mapy města s označením turistických atrakcí, restaurací, obchodů a dalších zajímavých míst. Pokud se ztratíte, nezoufejte! Náš průvodce vás provede městem jako GPS našlapaná navigace.
-- **Užitečné informace:** ℹ️ Kompletní informace o historii, kultuře a zajímavostech města. Tady se dozvíte víc, než když jste spíchli celou encyklopedii.
+- **Užitečné informace:** ℹ️ Kompletní informace o historii, kultuře a zajímavostech města. A zároveň fotografie, skeny a modely. Tady se dozvíte víc, než když jste spíchli celou encyklopedii.
 - **Tipy a doporučení:** 💡 Doporučení od místních obyvatel a tipy na místa, která byste neměli při návštěvě města minout. Ano, i ty tajné pláže u řeky, kam se nedostanete autem.
 - **Možnost zpětné vazby:** 📝 Sdílejte své zážitky a hodnocení míst přímo v aplikaci. A kdo ví, třeba se stane vaše historka součástí naší rubriky "Největší dobrodružství v Brandýse nad Labem - Staré Boleslavi"!
 
