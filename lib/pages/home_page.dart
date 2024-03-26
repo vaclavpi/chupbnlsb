@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 1, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               height: 25,
                               width: 160,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(78, 255, 63, 63),
+                                color: AppColors.appColor,
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Align(
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               height: 25,
                               width: 160,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(78, 255, 63, 63),
+                                color: AppColors.appColor,
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Align(
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               height: 25,
                               width: 160,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(78, 255, 63, 63),
+                                color: AppColors.appColor,
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Align(
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color: Color.fromARGB(78, 255, 63, 63),
+                                    color: AppColors.appColor,
                                   ),
                                   padding: const EdgeInsets.only(
                                     top: 5,
@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Color.fromARGB(78, 255, 63, 63),
+                      color: AppColors.appColor,
                     ),
                     width: double.maxFinite,
                     height: 120,
@@ -269,7 +269,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Color.fromARGB(78, 255, 63, 63),
+                                        color: AppColors.appColor,
                                       ),
                                       child: Text(
                                         'O projektu',
@@ -313,7 +313,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Color.fromARGB(78, 255, 63, 63),
+                                        color: AppColors.appColor,
                                       ),
                                       child: Text(
                                         'O městě',
@@ -358,7 +358,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Color.fromARGB(78, 255, 63, 63),
+                                        color: AppColors.appColor,
                                       ),
                                       child: Text(
                                         'Podcasty',
@@ -408,7 +408,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Color.fromARGB(78, 255, 63, 63),
+                                        color: AppColors.appColor,
                                       ),
                                       child: Text(
                                         'Podcasty',
@@ -453,7 +453,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Color.fromARGB(78, 255, 63, 63),
+                                        color: AppColors.appColor,
                                       ),
                                       child: Text(
                                         'Podcasty',
@@ -498,7 +498,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
-                                        color: Color.fromARGB(78, 255, 63, 63),
+                                        color: AppColors.appColor,
                                       ),
                                       child: Text(
                                         'Podcasty',
@@ -524,8 +524,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
             );
+          } else if (state is LoadingState) {
+            return Center(child: CircularProgressIndicator());
           } else {
-            return Container();
+            return Center(child: Text("Chyba při načítání dat"));
           }
         },
       ),
