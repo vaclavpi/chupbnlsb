@@ -18,7 +18,7 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/vaclavpi/chupbnlsb/total) ![Contributors](https://img.shields.io/github/contributors/vaclavpi/chupbnlsb?color=dark-green) ![Issues](https://img.shields.io/github/issues/vaclavpi/chupbnlsb) ![License](https://img.shields.io/github/license/vaclavpi/chupbnlsb)
+![Downloads](https://img.shields.io/github/downloads/vaclavpi/chupbnlsb/total) ![Contributors](https://img.shields.io/github/contributors/vaclavpi/chupbnlsb?color=dark-green) ![Issues](https://img.shields.io/github/issues/vaclavpi/chupbnlsb) [![GNU Affero General Public License v3.0](https://img.shields.io/github/license/vaclavpi/chupbnlsb)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
 ## Table Of Contents
 
