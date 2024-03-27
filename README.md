@@ -1,4 +1,33 @@
-# Chytrý upřímný průvodce Brandýsem nad Labem - Starou Boleslaví
+<br/>
+<p align="center">
+  <a href="https://github.com/vaclavpi/chupbnlsb">
+    <img src="https://github.com/vaclavpi/chupbnlsb/blob/main/assets/img/logo.png?raw=true" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Chytrý upřímný průvodce Brandýsem nad Labem - Starou Boleslaví</h3>
+
+  <p align="center">
+    <a href="https://github.com/vaclavpi/chupbnlsb"><strong>Prozkoumejte dokumentaci »</strong></a>
+    <br/>
+    <br/>
+    <a href="https://github.com/vaclavpi/chupbnlsb">spustit demo</a>
+    .
+    <a href="https://github.com/vaclavpi/chupbnlsb/issues">oznámit chybu</a>
+    .
+    <a href="https://github.com/vaclavpi/chupbnlsb/issues">navrhnout úpravu</a>
+  </p>
+</p>
+
+![Downloads](https://img.shields.io/github/downloads/vaclavpi/chupbnlsb/total) ![Contributors](https://img.shields.io/github/contributors/vaclavpi/chupbnlsb?color=dark-green) ![Issues](https://img.shields.io/github/issues/vaclavpi/chupbnlsb) ![License](https://img.shields.io/github/license/vaclavpi/chupbnlsb)
+
+## Table Of Contents
+
+* [O projektu](#O-projektu)
+* [Co je Chytrý upřímný průvodce?](#Co-je-Chytrý-upřímný-průvodce?)
+* [Funkce aplikace](#Funkce-aplikace)
+* [Dostupnost](#Dostupnost)
+* [Kontakt](#Kontakt)
+* [Licence](#Licence)
 
 ## O projektu
 
@@ -26,3 +55,8 @@ Chytrý upřímný průvodce je aktuálně dostupný ve třech verzích:
 ## Kontakt
 
 Pro více informací o aplikaci nebo pokud máte dotazy, kontaktujte mě na [emailová adresa](mailto:vpi@outlook.cz) nebo navštivte mé [webové stránky](https://vaclavpi.github.io/). Jsme tu pro vás, jako váš nejlepší průvodce městem!
+
+## Licence
+
+[GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)
+
