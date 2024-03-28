@@ -23,13 +23,13 @@
 
 ## Přehled obsahu
 
-* [About the Project](#o-projektu)
-* [Getting Started](#spusteni)
-  * [Installation](#instalace)
-* [Usage](#vyuziti)
-* [Roadmap](#plany)
-* [License](#licence)
-* [Authors](#autori)
+* [O projektu](#o-projektu)
+* [Spuštění](#spuštění)
+  * [Instalace](#instalace)
+* [Využití](#využití)
+* [Plány](#plány)
+* [Licence](#licence)
+* [Autoři](#autori)
 
 ## O projektu
 
