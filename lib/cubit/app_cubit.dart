@@ -9,18 +9,26 @@ class AppCubits extends Cubit<CubitStates> {
   }
 
   final DataServices data;
-  // ignore: prefer_typing_uninitialized_variables
-  late final places;
+  late List<DataModel> culturePlaces;
+  late List<DataModel> naturePlaces;
+  late List<DataModel> refreshmentPlaces;
+
   Future<void> getData() async {
     try {
       emit(LoadingState());
-      places = await data.getInfo();
-      emit(LoadedState(places));
-      // ignore: empty_catches
-    } catch (e) {}
+      culturePlaces = await data.getCultureInfo();
+      naturePlaces = await data.getNatureInfo();
+      refreshmentPlaces = await data.getRefreshmentInfo();
+      emit(LoadedState(
+        culturePlaces: culturePlaces,
+        naturePlaces: naturePlaces,
+        refreshmentPlaces: refreshmentPlaces,
+      ));
+    } catch (e) {
+      // Handle error
+    }
   }
 
-  // ignore: non_constant_identifier_names
   DetailPage(DataModel data) {
     emit(DetailState(data));
   }
@@ -30,7 +38,11 @@ class AppCubits extends Cubit<CubitStates> {
   }
 
   goHome() {
-    emit(LoadedState(places));
+    emit(LoadedState(
+      culturePlaces: culturePlaces,
+      naturePlaces: naturePlaces,
+      refreshmentPlaces: refreshmentPlaces,
+    ));
   }
 
   goAbout() {

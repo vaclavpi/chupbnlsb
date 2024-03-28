@@ -5,6 +5,7 @@ import 'package:honest_guide/cubit/app_cubit_states.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:honest_guide/pages/navpages/about_page.dart';
 import 'package:honest_guide/pages/navpages/podcast.dart';
+import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/widgets/app_large_bold_text.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,7 +30,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       body: BlocBuilder<AppCubits, CubitStates>(
         builder: (context, state) {
           if (state is LoadedState) {
-            var info = state.places;
             return SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   SizedBox(
                     height: 50,
                   ),
-                  //title
+                  // Title
                   Container(
                     margin: const EdgeInsets.only(left: 20, right: 20),
                     child: Row(
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               size: 35,
                               color: AppColors.fourthColor,
                             ),
-                            AppLargeText(
+                            AppBoldText(
                               text: "Brandýs nad Labem - Starou Boleslav",
                               size: 17,
                               color: AppColors.fourthColor,
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   SizedBox(
                     height: 20,
                   ),
-                  //bar
+                  // Tab bar
                   Container(
                     child: Align(
                       alignment: Alignment.centerLeft,
@@ -93,7 +93,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               ),
                               child: Align(
                                 alignment: Alignment.center,
-                                child: Text("⛪ kultura"),
+                                child: Text(
+                                  "kultura",
+                                  style: TextStyle(
+                                      fontFamily: "BB-UttaraGrotesk",
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
                             ),
                           ),
@@ -107,7 +112,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               ),
                               child: Align(
                                 alignment: Alignment.center,
-                                child: Text("🌳 příroda"),
+                                child: Text(
+                                  "příroda",
+                                  style: TextStyle(
+                                      fontFamily: "BB-UttaraGrotesk",
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
                             ),
                           ),
@@ -121,7 +131,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               ),
                               child: Align(
                                 alignment: Alignment.center,
-                                child: Text("☕🍔 občerstvení"),
+                                child: Text(
+                                  "občerstvení",
+                                  style: TextStyle(
+                                      fontFamily: "BB-UttaraGrotesk",
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
                             ),
                           ),
@@ -130,6 +145,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                   ),
 
+                  // Tab bar view
                   Container(
                     padding: const EdgeInsets.only(
                       left: 20,
@@ -139,14 +155,63 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     child: TabBarView(
                       controller: _tabController,
                       children: [
+                        // Kultura tab
                         ListView.builder(
-                          itemCount: info.length,
+                          itemCount: state.culturePlaces.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
                               onTap: () {
                                 BlocProvider.of<AppCubits>(context)
-                                    .DetailPage(info[index]);
+                                    .DetailPage(state.culturePlaces[index]);
+                              },
+                              child: Container(
+                                margin:
+                                    const EdgeInsets.only(right: 20, top: 10),
+                                width: 200,
+                                height: 300,
+                                padding: const EdgeInsets.only(
+                                  top: 200,
+                                  left: 0,
+                                ),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: AppColors.appColor,
+                                  ),
+                                  padding: const EdgeInsets.only(
+                                    top: 5,
+                                    left: 10,
+                                  ),
+                                  child: Text(
+                                    state.culturePlaces[index].name,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        fontFamily: "BB-UttaraGrotesk",
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            state.culturePlaces[index].img),
+                                        fit: BoxFit.cover)),
+                              ),
+                            );
+                          },
+                        ),
+                        // Příroda tab
+                        ListView.builder(
+                          itemCount: state.naturePlaces.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () {
+                                BlocProvider.of<AppCubits>(context)
+                                    .DetailPage(state.naturePlaces[index]);
                               },
                               child: Container(
                                 margin:
@@ -164,21 +229,71 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ),
                                   padding: const EdgeInsets.only(
                                     top: 5,
-                                    left: 5,
+                                    left: 10,
                                   ),
                                   child: Text(
-                                    info[index].name,
+                                    state.naturePlaces[index].name,
                                     style: TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                                        fontFamily: "BB-UttaraGrotesk",
+                                        fontWeight: FontWeight.w400),
                                   ),
                                 ),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                        image: AssetImage(info[index].img),
+                                        image: AssetImage(
+                                            state.naturePlaces[index].img),
+                                        fit: BoxFit.cover)),
+                              ),
+                            );
+                          },
+                        ),
+                        // Občerstvení tab
+                        ListView.builder(
+                          itemCount: state.refreshmentPlaces.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () {
+                                BlocProvider.of<AppCubits>(context)
+                                    .DetailPage(state.refreshmentPlaces[index]);
+                              },
+                              child: Container(
+                                margin:
+                                    const EdgeInsets.only(right: 15, top: 10),
+                                width: 200,
+                                height: 300,
+                                padding: const EdgeInsets.only(
+                                  top: 200,
+                                  left: 0,
+                                ),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: AppColors.appColor,
+                                  ),
+                                  padding: const EdgeInsets.only(
+                                    top: 5,
+                                    left: 10,
+                                  ),
+                                  child: Text(
+                                    state.refreshmentPlaces[index].name,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        fontFamily: "BB-UttaraGrotesk",
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            state.refreshmentPlaces[index].img),
                                         fit: BoxFit.cover)),
                               ),
                             );
@@ -187,9 +302,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  SizedBox(height: 30),
+                  // Mapa
                   Container(
                     margin: const EdgeInsets.only(left: 20, right: 20),
                     child: Row(
@@ -225,6 +339,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                   ),
                   SizedBox(height: 30),
+                  // Objevuj více
                   Container(
                     margin: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 10),
@@ -274,9 +389,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       child: Text(
                                         'O projektu',
                                         style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                        ),
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
                                       ),
                                     ),
                                   ),
@@ -302,7 +418,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image: AssetImage('assets/img/znak.png'),
+                                      image: AssetImage(
+                                          'assets/img/centerznaklogotyp.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -318,9 +435,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       child: Text(
                                         'O městě',
                                         style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                        ),
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
                                       ),
                                     ),
                                   ),
@@ -363,9 +481,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       child: Text(
                                         'Podcasty',
                                         style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                        ),
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
                                       ),
                                     ),
                                   ),
@@ -413,9 +532,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       child: Text(
                                         'Podcasty',
                                         style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                        ),
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
                                       ),
                                     ),
                                   ),
@@ -458,9 +578,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       child: Text(
                                         'Podcasty',
                                         style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                        ),
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
                                       ),
                                     ),
                                   ),
@@ -503,9 +624,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       child: Text(
                                         'Podcasty',
                                         style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                        ),
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
                                       ),
                                     ),
                                   ),
@@ -518,8 +640,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-
-                  // End of the content in the Column
                   SizedBox(height: 30),
                 ],
               ),
@@ -527,7 +647,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           } else if (state is LoadingState) {
             return Center(child: CircularProgressIndicator());
           } else {
-            return Center(child: Text("Chyba při načítání dat"));
+            return Center(
+                child: Text("ERROR: Chyba při načítání 😒 | 0x00001"));
           }
         },
       ),
@@ -535,6 +656,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 }
 
+// ignore: must_be_immutable
 class CircleTabIndicator extends Decoration {
   final Color color;
   double radius;

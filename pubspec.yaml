@@ -48,22 +48,24 @@ flutter:
   uses-material-design: true
 
   assets:
-  - assets/img/welcome-1.png
-  - assets/img/welcome-2.png
-  - assets/img/welcome-3.png
-  - assets/img/button-arrow.png
+  - assets/img/welcome.jpg
   - assets/data/culture_data.json
-  - assets/data/data.json
   - assets/data/nature_data.json
   - assets/data/food_data.json
   - assets/img/logo.png
   - assets/img/ckl.png
-  - assets/img/instagram.png
-  - assets/img/facebook.png
-  - assets/img/web.png
-  - assets/img/coffee-cup.png
-  - assets/img/znak.png
   - assets/img/mapilu.jpeg
   - assets/img/vapi.jpeg
   - assets/img/podcasty.png
   - assets/img/logoTB.png
+  - assets/img/centerznaklogotyp.png
+
+  fonts:
+  - family: BB-UttaraGrotesk
+    fonts:
+    - asset: assets/fonts/BB-UttaraGrotesk-Title.ttf
+      weight: 600
+    - asset: assets/fonts/BB-UttaraGrotesk-Regular.ttf
+      weight: 200
+    - asset: assets/fonts/BB-UttaraGrotesk-Semibold.ttf
+      weight: 400

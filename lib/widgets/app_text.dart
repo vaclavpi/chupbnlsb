@@ -5,17 +5,20 @@ class AppText extends StatelessWidget {
   double size;
   final String text;
   final Color color;
-   AppText({super.key,
-   this.size=16,
-   required this.text,
-   this.color=Colors.white70});
+  AppText(
+      {super.key,
+      this.size = 16,
+      required this.text,
+      this.color = Colors.white70});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       style: TextStyle(
-        color:color,
+        fontFamily: "BB-UttaraGrotesk",
+        color: color,
+        fontWeight: FontWeight.w200,
         fontSize: size,
       ),
     );

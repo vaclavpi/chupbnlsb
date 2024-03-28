@@ -28,7 +28,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: double.maxFinite,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/img/welcome-2.png"),
+                    image: AssetImage("assets/img/welcome.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -95,7 +95,7 @@ class _WelcomePageState extends State<WelcomePage> {
                                       .start, // Align the button to the right
                                   children: [
                                     Align(
-                                      alignment: Alignment.centerRight,
+                                      alignment: Alignment.bottomRight,
                                       child: ResponsiveButton(
                                         width: 200,
                                       ),

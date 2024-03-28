@@ -6,7 +6,8 @@
         android:label="BnL-SB"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round">
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:enableOnBackInvokedCallback="true">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCNyhuZsblc9Ko27fQQ_usslco3N7ZcFkU"
@@ -43,6 +44,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="android:enableOnBackInvokedCallback"
+            android:value="true" />
     </application>
 
 </manifest>

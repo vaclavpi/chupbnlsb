@@ -74,7 +74,7 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: AppColors.thirdColor, // Barva pozadí ikony
+                        color: Colors.white, // Barva pozadí ikony
                         shape: BoxShape
                             .circle, // Tvar pozadí (v tomto případě kruh)
                       ),
@@ -84,7 +84,7 @@ class _DetailPageState extends State<DetailPage> {
                           BlocProvider.of<AppCubits>(context).goHome();
                         },
                         icon: Icon(Icons.close_rounded),
-                        color: Colors.white, // Barva ikony
+                        color: AppColors.thirdColor, // Barva ikony
                       ),
                     ),
                   ],
@@ -97,7 +97,7 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: AppColors.thirdColor, // Barva pozadí ikony
+                        color: Colors.white, // Barva pozadí ikony
                         shape: BoxShape
                             .circle, // Tvar pozadí (v tomto případě kruh)
                       ),
@@ -106,8 +106,8 @@ class _DetailPageState extends State<DetailPage> {
                         onPressed: () {
                           BlocProvider.of<AppCubits>(context).goHome();
                         },
-                        icon: Icon(Icons.photo_album_rounded),
-                        color: Colors.white, // Barva ikony
+                        icon: Icon(Icons.control_camera),
+                        color: AppColors.thirdColor, // Barva ikony
                       ),
                     ),
                   ],
@@ -120,7 +120,7 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: AppColors.thirdColor, // Barva pozadí ikony
+                        color: Colors.white, // Barva pozadí ikony
                         shape: BoxShape
                             .circle, // Tvar pozadí (v tomto případě kruh)
                       ),
@@ -129,8 +129,8 @@ class _DetailPageState extends State<DetailPage> {
                         onPressed: () {
                           BlocProvider.of<AppCubits>(context).goHome();
                         },
-                        icon: Icon(Icons.podcasts_rounded),
-                        color: Colors.white, // Barva ikony
+                        icon: Icon(Icons.volume_up),
+                        color: AppColors.thirdColor, // Barva ikony
                       ),
                     ),
                   ],
@@ -191,9 +191,7 @@ class _DetailPageState extends State<DetailPage> {
                             Text(
                               '$starRating (Mapy Google)',
                               style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.thirdColor),
+                                  fontSize: 14.0, color: AppColors.thirdColor),
                             ),
                           ],
                         ),
@@ -265,7 +263,7 @@ class _DetailPageState extends State<DetailPage> {
     for (int i = 0; i < 5; i++) {
       IconData starIcon = i < rating ? Icons.star : Icons.star_border;
       Color starColor =
-          i < rating ? AppColors.fifthColor : AppColors.secondColor;
+          i < rating ? AppColors.fourthColor : AppColors.thirdColor;
       stars.add(
         Icon(
           starIcon,
