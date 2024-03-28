@@ -10,12 +10,12 @@
     Objevte kouzlo Brandýsa nad Labem – Staré Boleslavi s tímto kapesním průvodcem, který Vás provede vybranými místy.
     <br/>
     <br/>
-    <a href="https://github.com/vaclavpi/chupbnlsb"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/vaclavpi/chupbnlsb"><strong>Prozkoumat dokumentaci »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/vaclavpi/chupbnlsb/issues">Report Bug</a>
+    <a href="https://github.com/vaclavpi/chupbnlsb/issues">oznámit chybu</a>
     .
-    <a href="https://github.com/vaclavpi/chupbnlsb/issues">Request Feature</a>
+    <a href="https://github.com/vaclavpi/chupbnlsb/issues">navrhnout úpravu</a>
   </p>
 </p>
 
