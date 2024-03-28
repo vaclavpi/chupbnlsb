@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:honest_guide/misc/colors.dart';
+import 'package:icons_flutter/icons_flutter.dart';
 
 // ignore: must_be_immutable
 class ResponsiveButton extends StatelessWidget {
@@ -11,20 +12,21 @@ class ResponsiveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.centerRight, // Zarovnání k pravé hraně
+      alignment: Alignment.centerLeft, // Zarovnání k pravé hraně
       child: Container(
-        width: 60,
+        width: width,
         height: 60,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
+          borderRadius: BorderRadius.circular(15),
           color: AppColors.fourthColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              Icons.double_arrow,
+              Feather.arrow_right,
               color: Colors.white,
+              size: 35,
             ),
           ],
         ),

@@ -95,7 +95,7 @@ class _WelcomePageState extends State<WelcomePage> {
                                       .start, // Align the button to the right
                                   children: [
                                     Align(
-                                      alignment: Alignment.bottomRight,
+                                      alignment: Alignment.center,
                                       child: ResponsiveButton(
                                         width: 200,
                                       ),

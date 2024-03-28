@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:honest_guide/misc/colors.dart';
 import 'package:honest_guide/pages/navpages/offline_map.dart';
+import 'package:icons_flutter/icons_flutter.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:honest_guide/model/data_model.dart';
-import 'package:geolocator/geolocator.dart';
 
 class MapPage extends StatefulWidget {
   @override
@@ -25,14 +26,30 @@ class _MapPageState extends State<MapPage> {
     sqfliteFfiInit();
     offlineMapController = OfflineMapController();
     _loadMarkerData();
-    _getCurrentLocation(); // Get the current location when the widget is initialized
   }
 
   Future<void> _loadMarkerData() async {
-    // Load data from the data.json file
-    String jsonString = await DefaultAssetBundle.of(context)
-        .loadString('assets/data/data.json');
-    List<dynamic> jsonData = jsonDecode(jsonString);
+    // Load data from the culture_data.json file
+    String cultureJsonString = await DefaultAssetBundle.of(context)
+        .loadString('assets/data/culture_data.json');
+    List<dynamic> cultureJsonData = jsonDecode(cultureJsonString);
+
+    // Load data from the food_data.json file
+    String foodJsonString = await DefaultAssetBundle.of(context)
+        .loadString('assets/data/food_data.json');
+    List<dynamic> foodJsonData = jsonDecode(foodJsonString);
+
+// Load data from the food_data.json file
+    String natureJsonString = await DefaultAssetBundle.of(context)
+        .loadString('assets/data/nature_data.json');
+    List<dynamic> natureJsonData = jsonDecode(natureJsonString);
+
+    // Combine both data lists into one markerData list
+    List<dynamic> jsonData = [
+      ...cultureJsonData,
+      ...foodJsonData,
+      ...natureJsonData
+    ];
 
     // Save data into the markerData list
     setState(() {
@@ -40,15 +57,6 @@ class _MapPageState extends State<MapPage> {
     });
 
     await offlineMapController.downloadMapTiles();
-  }
-
-  Future<void> _getCurrentLocation() async {
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high); // Get the current location
-    setState(() {
-      currentLocation = LatLng(
-          position.latitude, position.longitude); // Update the current location
-    });
   }
 
   @override
@@ -77,8 +85,11 @@ class _MapPageState extends State<MapPage> {
           // Here you can add the code to navigate back to the homescreen
           BlocProvider.of<AppCubits>(context).goHome();
         },
-        backgroundColor: Colors.blue, // Blue color
-        child: Icon(Icons.close),
+        backgroundColor: Colors.white, // Blue color
+        child: Icon(
+          Icons.close,
+          color: AppColors.thirdColor,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
@@ -102,8 +113,8 @@ class _MapPageState extends State<MapPage> {
             BlocProvider.of<AppCubits>(context).DetailPage(dataModel);
           },
           child: Icon(
-            Icons.location_on,
-            color: Colors.red,
+            MaterialCommunityIcons.map_marker,
+            color: AppColors.fourthColor,
           ),
         ),
       );

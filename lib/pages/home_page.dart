@@ -515,8 +515,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/img/welcome-3.png'),
+                                      image:
+                                          AssetImage('assets/img/welcome.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -561,8 +561,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/img/welcome-3.png'),
+                                      image:
+                                          AssetImage('assets/img/welcome.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -607,8 +607,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/img/welcome-3.png'),
+                                      image:
+                                          AssetImage('assets/img/welcome.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),

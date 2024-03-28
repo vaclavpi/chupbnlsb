@@ -11,8 +11,8 @@
         "img5": "assets/img/welcome.jpg",
         "location": "Prostě někde",
         "googlemapyid": "",
-        "latitude": 0.0,
-        "longitude": 0.0
+        "latitude": 50.19459,
+        "longitude": 14.67228
     },
     {
         "id": 2,
@@ -21,8 +21,8 @@
         "img": "assets/img/welcome.jpg",
         "location": "",
         "googlemapyid": "",
-        "latitude": 0.0,
-        "longitude": 0.0
+        "latitude": 50.19459,
+        "longitude": 14.67228
     },
     {
         "id": 3,
@@ -31,6 +31,7 @@
         "img": "assets/img/welcome.jpg",
         "location": "",
         "googlemapyid": "",
-        "GPS": ""
+        "latitude": 50.19459,
+        "longitude": 14.67228
     }
 ]

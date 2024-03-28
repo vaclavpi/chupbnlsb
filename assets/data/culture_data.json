@@ -31,6 +31,7 @@
         "img": "assets/img/welcome.jpg",
         "location": "",
         "googlemapyid": "",
-        "GPS": ""
+        "latitude": 50.19459,
+        "longitude": 14.67228
     }
 ]
