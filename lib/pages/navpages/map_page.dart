@@ -9,6 +9,7 @@ import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:honest_guide/model/data_model.dart';
+import 'package:location/location.dart' as loc;
 
 class MapPage extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   List<Map<String, dynamic>> markerData = [];
   late OfflineMapController offlineMapController;
-  late LatLng currentLocation;
+  late LatLng currentLocation = LatLng(50.19459, 14.67228); // Default location
 
   @override
   void initState() {
@@ -26,6 +27,37 @@ class _MapPageState extends State<MapPage> {
     sqfliteFfiInit();
     offlineMapController = OfflineMapController();
     _loadMarkerData();
+    _getCurrentLocation(); // Get current location when initializing
+  }
+
+  Future<void> _getCurrentLocation() async {
+    loc.Location location = loc.Location();
+
+    bool _serviceEnabled;
+    loc.PermissionStatus _permissionGranted;
+    loc.LocationData _locationData;
+
+    _serviceEnabled = await location.serviceEnabled();
+    if (!_serviceEnabled) {
+      _serviceEnabled = await location.requestService();
+      if (!_serviceEnabled) {
+        return;
+      }
+    }
+
+    _permissionGranted = await location.hasPermission();
+    if (_permissionGranted == loc.PermissionStatus.denied) {
+      _permissionGranted = await location.requestPermission();
+      if (_permissionGranted != loc.PermissionStatus.granted) {
+        return;
+      }
+    }
+
+    _locationData = await location.getLocation();
+    setState(() {
+      currentLocation =
+          LatLng(_locationData.latitude!, _locationData.longitude!);
+    });
   }
 
   Future<void> _loadMarkerData() async {
@@ -65,7 +97,7 @@ class _MapPageState extends State<MapPage> {
       body: FlutterMap(
         options: MapOptions(
           // ignore: deprecated_member_use
-          center: LatLng(50.19459, 14.67228), // Map's default center position
+          center: currentLocation, // Map's default center position
           // ignore: deprecated_member_use
           zoom: 16.0, // Map's default zoom
         ),
@@ -96,7 +128,10 @@ class _MapPageState extends State<MapPage> {
   }
 
   List<Marker> _buildMarkers() {
-    return markerData
+    List<Marker> markers = [];
+
+    // Add markers from markerData list
+    markers.addAll(markerData
         .where((data) => data['latitude'] != null && data['longitude'] != null)
         .map((data) {
       double latitude = data['latitude'] ?? 0.0;
@@ -118,6 +153,19 @@ class _MapPageState extends State<MapPage> {
           ),
         ),
       );
-    }).toList();
+    }).toList());
+
+    // Add marker for current location
+    markers.add(Marker(
+      width: 30.0,
+      height: 30.0,
+      point: currentLocation,
+      child: Icon(
+        Icons.navigation_rounded,
+        color: Colors.blue,
+      ),
+    ));
+
+    return markers;
   }
 }

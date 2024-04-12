@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:icons_flutter/icons_flutter.dart';

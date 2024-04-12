@@ -31,6 +31,7 @@ dependencies:
   permission_handler: ^11.3.0
   icons_flutter: ^0.0.4
   webview_flutter: ^4.7.0
+  flutter_tts: ^4.0.2
 
 dev_dependencies:
   flutter_test:
@@ -56,9 +57,11 @@ flutter:
   - assets/img/ckl.png
   - assets/img/mapilu.jpeg
   - assets/img/vapi.jpeg
-  - assets/img/podcasty.png
   - assets/img/logoTB.png
   - assets/img/centerznaklogotyp.png
+  - assets/img/bnlsbILU1.png
+  - assets/img/bnlsbILU2.png
+
 
   fonts:
   - family: BB-UttaraGrotesk

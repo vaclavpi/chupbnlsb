@@ -4,9 +4,9 @@ import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:honest_guide/cubit/app_cubit_states.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:honest_guide/pages/navpages/about_page.dart';
-import 'package:honest_guide/pages/navpages/podcast.dart';
 import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/widgets/app_large_bold_text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                         Image.asset(
                           'assets/img/logoTB.png',
-                          width: 77,
+                          width: 82,
                         ),
                       ],
                     ),
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             const EdgeInsets.only(left: 20, right: 20),
                         controller: _tabController,
                         labelColor: AppColors.fourthColor,
-                        unselectedLabelColor: AppColors.thirdColor,
+                        unselectedLabelColor: Colors.white,
                         isScrollable: true,
                         indicatorSize: TabBarIndicatorSize.label,
                         indicator: CircleTabIndicator(
@@ -359,12 +359,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   // Navigate to another screen
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AboutPage(),
-                                    ),
-                                  );
+                                  launch('https://vaclavpi.github.io');
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
@@ -387,7 +382,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: AppColors.appColor,
                                       ),
                                       child: Text(
-                                        'O projektu',
+                                        'Autor',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
@@ -404,12 +399,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   // Navigate to another screen
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AboutPage(),
-                                    ),
-                                  );
+                                  launch(
+                                      'https://www.brandysko.cz/ap/kdy=4&p1=7519');
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
@@ -419,7 +410,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     color: Colors.white,
                                     image: DecorationImage(
                                       image: AssetImage(
-                                          'assets/img/centerznaklogotyp.png'),
+                                          'assets/img/bnlsbILU1.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -433,7 +424,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: AppColors.appColor,
                                       ),
                                       child: Text(
-                                        'O městě',
+                                        'Aktuálně',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
@@ -450,12 +441,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   // Navigate to another screen
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => PodcastPage(),
-                                    ),
-                                  );
+                                  launch(
+                                      'https://www.youtube.com/channel/UCZtmOJoSyQK_Ls8swIPDftg');
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
@@ -464,8 +451,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/img/podcasty.png'),
+                                      image: AssetImage(
+                                          'assets/img/bnlsbILU2.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -516,7 +503,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     color: Colors.white,
                                     image: DecorationImage(
                                       image:
-                                          AssetImage('assets/img/welcome.png'),
+                                          AssetImage('assets/img/welcome.jpg'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -562,7 +549,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     color: Colors.white,
                                     image: DecorationImage(
                                       image:
-                                          AssetImage('assets/img/welcome.png'),
+                                          AssetImage('assets/img/welcome.jpg'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -608,7 +595,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     color: Colors.white,
                                     image: DecorationImage(
                                       image:
-                                          AssetImage('assets/img/welcome.png'),
+                                          AssetImage('assets/img/welcome.jpg'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
