@@ -305,7 +305,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   SizedBox(height: 30),
                   // Mapa
                   Container(
-                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    margin: const EdgeInsets.only(left: 20, right: 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -318,7 +318,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                    margin: const EdgeInsets.only(left: 20, right: 30, top: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: AppColors.appColor,
@@ -359,7 +359,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   // Navigate to another screen
-                                  launch('https://vaclavpi.github.io');
+                                  launch(
+                                      'https://github.com/vaclavpi/chupbnlsb');
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
@@ -368,7 +369,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image: AssetImage('assets/img/vapi.jpeg'),
+                                      image: AssetImage(
+                                          'assets/img/bnlsbILU5.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -382,7 +384,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: AppColors.appColor,
                                       ),
                                       child: Text(
-                                        'Autor',
+                                        'Projekt',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
@@ -488,12 +490,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   // Navigate to another screen
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AboutPage(),
-                                    ),
-                                  );
+                                  launch('https://vaclavpi.github.io/');
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
@@ -502,8 +499,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/img/welcome.jpg'),
+                                      image: AssetImage(
+                                          'assets/img/bnlsbILU3.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -517,7 +514,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: AppColors.appColor,
                                       ),
                                       child: Text(
-                                        'Podcasty',
+                                        'Autor',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
@@ -534,12 +531,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   // Navigate to another screen
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AboutPage(),
-                                    ),
-                                  );
+                                  launch(
+                                      'https://github.com/vaclavpi/chupbnlsb/issues');
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
@@ -548,8 +541,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
                                     image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/img/welcome.jpg'),
+                                      image: AssetImage(
+                                          'assets/img/bnlsbILU4.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -563,7 +556,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         color: AppColors.appColor,
                                       ),
                                       child: Text(
-                                        'Podcasty',
+                                        'Zpětná vazba',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16,
@@ -575,53 +568,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            //--------------------------------------
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                  // Navigate to another screen
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => AboutPage(),
-                                    ),
-                                  );
-                                },
-                                child: Container(
-                                  margin: EdgeInsets.only(right: 20),
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white,
-                                    image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/img/welcome.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: Container(
-                                      padding: EdgeInsets.all(10),
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: AppColors.appColor,
-                                      ),
-                                      child: Text(
-                                        'Podcasty',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontFamily: "BB-UttaraGrotesk",
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            //--------------------------------------
                           ],
                         ),
                       ],

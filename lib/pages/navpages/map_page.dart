@@ -20,6 +20,7 @@ class _MapPageState extends State<MapPage> {
   List<Map<String, dynamic>> markerData = [];
   late OfflineMapController offlineMapController;
   late LatLng currentLocation = LatLng(50.19459, 14.67228); // Default location
+  String selectedDatabase = 'Vše'; // Default selected database
 
   @override
   void initState() {
@@ -71,17 +72,22 @@ class _MapPageState extends State<MapPage> {
         .loadString('assets/data/food_data.json');
     List<dynamic> foodJsonData = jsonDecode(foodJsonString);
 
-// Load data from the food_data.json file
+    // Load data from the nature_data.json file
     String natureJsonString = await DefaultAssetBundle.of(context)
         .loadString('assets/data/nature_data.json');
     List<dynamic> natureJsonData = jsonDecode(natureJsonString);
 
-    // Combine both data lists into one markerData list
-    List<dynamic> jsonData = [
-      ...cultureJsonData,
-      ...foodJsonData,
-      ...natureJsonData
-    ];
+    // Combine all data lists according to selected database
+    List<dynamic> jsonData = [];
+    if (selectedDatabase == 'Vše') {
+      jsonData = [...cultureJsonData, ...foodJsonData, ...natureJsonData];
+    } else if (selectedDatabase == 'Kulturní památky') {
+      jsonData = [...cultureJsonData];
+    } else if (selectedDatabase == 'Občerstvení') {
+      jsonData = [...foodJsonData];
+    } else if (selectedDatabase == 'Příroda a odpočinková místa') {
+      jsonData = [...natureJsonData];
+    }
 
     // Save data into the markerData list
     setState(() {
@@ -94,36 +100,67 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FlutterMap(
-        options: MapOptions(
-          // ignore: deprecated_member_use
-          center: currentLocation, // Map's default center position
-          // ignore: deprecated_member_use
-          zoom: 16.0, // Map's default zoom
-        ),
+      body: Stack(
         children: [
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            subdomains: ['a', 'b', 'c'],
+          FlutterMap(
+            options: MapOptions(
+              center: currentLocation,
+              zoom: 16.0,
+            ),
+            children: [
+              TileLayer(
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                subdomains: ['a', 'b', 'c'],
+              ),
+              MarkerLayer(
+                markers: _buildMarkers(),
+              ),
+            ],
           ),
-          MarkerLayer(
-            markers: _buildMarkers(),
+          Positioned(
+            top: 50.0,
+            right: 16.0,
+            child: SizedBox(
+              width: 64.0,
+              height: 64.0,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.filter_alt_outlined,
+                    color: AppColors.thirdColor,
+                    size: 32.0,
+                  ),
+                  onPressed: () {
+                    _showDatabaseSelectionDialog();
+                  },
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 50.0,
+            left: 16.0,
+            child: SizedBox(
+              width: 64.0,
+              height: 64.0,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.home,
+                    color: AppColors.thirdColor,
+                    size: 32.0,
+                  ),
+                  onPressed: () {
+                    BlocProvider.of<AppCubits>(context).goHome();
+                  },
+                ),
+              ),
+            ),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Function that is called when the button is pressed
-          // Here you can add the code to navigate back to the homescreen
-          BlocProvider.of<AppCubits>(context).goHome();
-        },
-        backgroundColor: Colors.white, // Blue color
-        child: Icon(
-          Icons.close,
-          color: AppColors.thirdColor,
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
   }
 
@@ -167,5 +204,39 @@ class _MapPageState extends State<MapPage> {
     ));
 
     return markers;
+  }
+
+  void _showDatabaseSelectionDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Zvolte filtr'),
+          content: DropdownButton<String>(
+            value: selectedDatabase,
+            items: <String>[
+              'Vše',
+              'Kulturní památky',
+              'Občerstvení',
+              'Příroda a odpočinková místa'
+            ].map((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+            onChanged: (String? newValue) {
+              if (newValue != null) {
+                setState(() {
+                  selectedDatabase = newValue;
+                  _loadMarkerData();
+                  Navigator.of(context).pop();
+                });
+              }
+            },
+          ),
+        );
+      },
+    );
   }
 }

@@ -126,7 +126,7 @@ class _DetailPageState extends State<DetailPage> {
                 child: Container(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                   width: MediaQuery.of(context).size.width,
-                  height: 500,
+                  height: 580,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
