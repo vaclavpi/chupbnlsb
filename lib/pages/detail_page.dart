@@ -34,15 +34,15 @@ class _DetailPageState extends State<DetailPage> {
       DetailState detail = state as DetailState;
       return Scaffold(
         body: Container(
-          width: double.maxFinite,
-          height: double.maxFinite,
+          width: double.infinity,
+          height: double.infinity,
           child: Stack(
             children: [
               Positioned(
                 left: 0,
                 right: 0,
                 child: Container(
-                  width: double.maxFinite,
+                  width: double.infinity,
                   height: 350,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -126,7 +126,7 @@ class _DetailPageState extends State<DetailPage> {
                 child: Container(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                   width: MediaQuery.of(context).size.width,
-                  height: 580,
+                  height: MediaQuery.of(context).size.height - 320 - 1,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(

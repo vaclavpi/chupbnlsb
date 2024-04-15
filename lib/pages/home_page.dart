@@ -38,8 +38,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     height: 50,
                   ),
                   // Title
-                  Container(
-                    margin: const EdgeInsets.only(left: 20, right: 20),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -73,8 +73,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: TabBar(
-                        labelPadding:
-                            const EdgeInsets.only(left: 20, right: 20),
+                        labelPadding: EdgeInsets.symmetric(horizontal: 20),
                         controller: _tabController,
                         labelColor: AppColors.fourthColor,
                         unselectedLabelColor: Colors.white,
@@ -86,13 +85,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           Tab(
                             child: Container(
                               height: 25,
-                              width: 160,
+                              width: MediaQuery.of(context).size.width / 3 - 40,
                               decoration: BoxDecoration(
                                 color: AppColors.appColor,
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Align(
-                                alignment: Alignment.center,
+                              child: Center(
                                 child: Text(
                                   "kultura",
                                   style: TextStyle(
@@ -105,13 +103,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           Tab(
                             child: Container(
                               height: 25,
-                              width: 160,
+                              width: MediaQuery.of(context).size.width / 3 - 40,
                               decoration: BoxDecoration(
                                 color: AppColors.appColor,
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Align(
-                                alignment: Alignment.center,
+                              child: Center(
                                 child: Text(
                                   "příroda",
                                   style: TextStyle(
@@ -124,13 +121,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           Tab(
                             child: Container(
                               height: 25,
-                              width: 160,
+                              width: MediaQuery.of(context).size.width / 3 - 40,
                               decoration: BoxDecoration(
                                 color: AppColors.appColor,
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Align(
-                                alignment: Alignment.center,
+                              child: Center(
                                 child: Text(
                                   "občerstvení",
                                   style: TextStyle(
@@ -147,10 +143,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
                   // Tab bar view
                   Container(
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                    ),
-                    height: 300,
+                    padding: EdgeInsets.only(left: 20),
+                    height: MediaQuery.of(context).size.width / 1.4,
                     width: double.maxFinite,
                     child: TabBarView(
                       controller: _tabController,
@@ -166,11 +160,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     .DetailPage(state.culturePlaces[index]);
                               },
                               child: Container(
-                                margin:
-                                    const EdgeInsets.only(right: 20, top: 10),
+                                margin: EdgeInsets.only(right: 20, top: 10),
                                 width: 200,
                                 height: 300,
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   top: 200,
                                   left: 0,
                                 ),
@@ -179,7 +172,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(20),
                                     color: AppColors.appColor,
                                   ),
-                                  padding: const EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                     top: 5,
                                     left: 10,
                                   ),
@@ -214,11 +207,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     .DetailPage(state.naturePlaces[index]);
                               },
                               child: Container(
-                                margin:
-                                    const EdgeInsets.only(right: 15, top: 10),
+                                margin: EdgeInsets.only(right: 15, top: 10),
                                 width: 200,
                                 height: 300,
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   top: 200,
                                   left: 0,
                                 ),
@@ -227,7 +219,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(20),
                                     color: AppColors.appColor,
                                   ),
-                                  padding: const EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                     top: 5,
                                     left: 10,
                                   ),
@@ -262,11 +254,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     .DetailPage(state.refreshmentPlaces[index]);
                               },
                               child: Container(
-                                margin:
-                                    const EdgeInsets.only(right: 15, top: 10),
+                                margin: EdgeInsets.only(right: 15, top: 10),
                                 width: 200,
                                 height: 300,
-                                padding: const EdgeInsets.only(
+                                padding: EdgeInsets.only(
                                   top: 200,
                                   left: 0,
                                 ),
@@ -275,7 +266,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     borderRadius: BorderRadius.circular(20),
                                     color: AppColors.appColor,
                                   ),
-                                  padding: const EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                     top: 5,
                                     left: 10,
                                   ),
@@ -304,45 +295,44 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   SizedBox(height: 30),
                   // Mapa
-                  Container(
-                    margin: const EdgeInsets.only(left: 20, right: 30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         AppLargeText(
                           text: "Mapa",
                           size: 25,
                           color: AppColors.fourthColor,
                         ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 20, right: 30, top: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.appColor,
-                    ),
-                    width: double.maxFinite,
-                    height: 120,
-                    child: GestureDetector(
-                      onTap: () {
-                        BlocProvider.of<AppCubits>(context).MapPage();
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
-                          'assets/img/mapilu.jpeg',
-                          fit: BoxFit.cover,
+                        SizedBox(height: 10),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: AppColors.appColor,
+                          ),
+                          width: double.maxFinite,
+                          height: 120,
+                          child: GestureDetector(
+                            onTap: () {
+                              BlocProvider.of<AppCubits>(context).MapPage();
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                'assets/img/mapilu.jpeg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                   SizedBox(height: 30),
                   // Objevuj více
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
