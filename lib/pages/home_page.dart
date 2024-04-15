@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:honest_guide/cubit/app_cubit_states.dart';
 import 'package:honest_guide/misc/colors.dart';
-import 'package:honest_guide/pages/navpages/about_page.dart';
 import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/widgets/app_large_bold_text.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -52,21 +51,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               color: AppColors.fourthColor,
                             ),
                             AppBoldText(
-                              text: "Brandýs nad Labem - Starou Boleslav",
-                              size: 17,
+                              text: "Brandýs nad Labem-Starou Boleslav",
+                              size: 16,
                               color: AppColors.fourthColor,
                             ),
                           ],
                         ),
                         Image.asset(
                           'assets/img/logoTB.png',
-                          width: 82,
+                          width: 107,
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 0,
                   ),
                   // Tab bar
                   Container(
@@ -144,7 +143,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   // Tab bar view
                   Container(
                     padding: EdgeInsets.only(left: 20),
-                    height: MediaQuery.of(context).size.width / 1.4,
+                    height: MediaQuery.of(context).size.width / 1.3,
                     width: double.maxFinite,
                     child: TabBarView(
                       controller: _tabController,
@@ -161,10 +160,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               },
                               child: Container(
                                 margin: EdgeInsets.only(right: 20, top: 10),
-                                width: 200,
-                                height: 300,
+                                width: MediaQuery.of(context).size.width / 2,
+                                height: MediaQuery.of(context).size.width / 1,
                                 padding: EdgeInsets.only(
-                                  top: 200,
+                                  top: MediaQuery.of(context).size.width / 2,
                                   left: 0,
                                 ),
                                 child: Container(
@@ -174,7 +173,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ),
                                   padding: EdgeInsets.only(
                                     top: 5,
-                                    left: 10,
+                                    left: 12,
                                   ),
                                   child: Text(
                                     state.culturePlaces[index].name,
@@ -207,11 +206,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     .DetailPage(state.naturePlaces[index]);
                               },
                               child: Container(
-                                margin: EdgeInsets.only(right: 15, top: 10),
-                                width: 200,
-                                height: 300,
+                                margin: EdgeInsets.only(right: 20, top: 10),
+                                width: MediaQuery.of(context).size.width / 2,
+                                height: MediaQuery.of(context).size.width / 1,
                                 padding: EdgeInsets.only(
-                                  top: 200,
+                                  top: MediaQuery.of(context).size.width / 2,
                                   left: 0,
                                 ),
                                 child: Container(
@@ -221,7 +220,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ),
                                   padding: EdgeInsets.only(
                                     top: 5,
-                                    left: 10,
+                                    left: 12,
                                   ),
                                   child: Text(
                                     state.naturePlaces[index].name,
@@ -254,11 +253,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     .DetailPage(state.refreshmentPlaces[index]);
                               },
                               child: Container(
-                                margin: EdgeInsets.only(right: 15, top: 10),
-                                width: 200,
-                                height: 300,
+                                margin: EdgeInsets.only(right: 20, top: 10),
+                                width: MediaQuery.of(context).size.width / 2,
+                                height: MediaQuery.of(context).size.width / 1,
                                 padding: EdgeInsets.only(
-                                  top: 200,
+                                  top: MediaQuery.of(context).size.width / 2,
                                   left: 0,
                                 ),
                                 child: Container(
@@ -268,7 +267,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ),
                                   padding: EdgeInsets.only(
                                     top: 5,
-                                    left: 10,
+                                    left: 12,
                                   ),
                                   child: Text(
                                     state.refreshmentPlaces[index].name,
@@ -312,7 +311,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             color: AppColors.appColor,
                           ),
                           width: double.maxFinite,
-                          height: 120,
+                          height: MediaQuery.of(context).size.height / 7,
                           child: GestureDetector(
                             onTap: () {
                               BlocProvider.of<AppCubits>(context).MapPage();
@@ -354,7 +353,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
-                                  height: 100,
+                                  height:
+                                      MediaQuery.of(context).size.height / 9,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
@@ -377,7 +377,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         'Projekt',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 15,
                                             fontFamily: "BB-UttaraGrotesk",
                                             fontWeight: FontWeight.w400),
                                       ),
@@ -396,7 +396,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
-                                  height: 100,
+                                  height:
+                                      MediaQuery.of(context).size.height / 9,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
@@ -419,7 +420,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         'Aktuálně',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 15,
                                             fontFamily: "BB-UttaraGrotesk",
                                             fontWeight: FontWeight.w400),
                                       ),
@@ -438,7 +439,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
-                                  height: 100,
+                                  height:
+                                      MediaQuery.of(context).size.height / 9,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
@@ -461,7 +463,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         'Podcasty',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 15,
                                             fontFamily: "BB-UttaraGrotesk",
                                             fontWeight: FontWeight.w400),
                                       ),
@@ -484,7 +486,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
-                                  height: 100,
+                                  height:
+                                      MediaQuery.of(context).size.height / 9,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
@@ -507,7 +510,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         'Autor',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 15,
                                             fontFamily: "BB-UttaraGrotesk",
                                             fontWeight: FontWeight.w400),
                                       ),
@@ -526,7 +529,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),
-                                  height: 100,
+                                  height:
+                                      MediaQuery.of(context).size.height / 9,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.white,
@@ -549,7 +553,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         'Zpětná vazba',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 15,
                                             fontFamily: "BB-UttaraGrotesk",
                                             fontWeight: FontWeight.w400),
                                       ),

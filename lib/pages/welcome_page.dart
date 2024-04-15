@@ -4,8 +4,7 @@ import 'package:honest_guide/cubit/app_cubit.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/widgets/app_large_bold_text.dart';
-import 'package:honest_guide/widgets/app_text.dart';
-import 'package:honest_guide/widgets/responsive_button.dart';
+import 'package:icons_flutter/icons_flutter.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -32,11 +31,11 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: constraints.maxHeight * 0.005, // Adjust as needed
-                    left: constraints.maxWidth / 2 - 100,
+                    top: constraints.maxHeight * 0.005,
+                    left: constraints.maxWidth / 2 - 80,
                     child: Image.asset(
                       'assets/img/ckl.png',
-                      width: 200,
+                      width: constraints.maxWidth * 0.4, // Adjust as needed
                     ),
                   ),
                   Positioned(
@@ -44,7 +43,7 @@ class WelcomePage extends StatelessWidget {
                     left: 0,
                     right: 0,
                     child: Container(
-                      height: constraints.maxHeight / 3,
+                      height: constraints.maxHeight / 3 + 30,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius:
@@ -70,14 +69,19 @@ class WelcomePage extends StatelessWidget {
                                   size: 18,
                                 ),
                                 SizedBox(height: 15),
-                                AppText(
-                                  text:
-                                      "Objevte kouzlo  Brandýsa nad Labem-Staré Boleslavi s tímto kapesním průvodcem, který Vás provede vybranými místy.",
-                                  color: Colors.black,
-                                  size: 18,
+                                Text(
+                                  "Objevte kouzlo  Brandýsa nad Labem-Staré Boleslavi s tímto kapesním průvodcem, který Vás provede vybranými místy.",
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontFamily: "BB-UttaraGrotesk",
+                                    fontWeight: FontWeight.w200,
+                                  ),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 10,
                                 ),
                                 GestureDetector(
                                   onTap: () {
@@ -85,17 +89,38 @@ class WelcomePage extends StatelessWidget {
                                         .getData();
                                   },
                                   child: Container(
-                                    width: constraints.maxWidth *
-                                        0.5, // Adjust as needed
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        ResponsiveButton(
-                                          width: constraints.maxWidth *
-                                              0.5, // Adjust as needed
+                                    width: constraints.maxWidth * 0.5,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        BlocProvider.of<AppCubits>(context)
+                                            .getData();
+                                      },
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                                AppColors.fourthColor),
+                                        shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        )),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 10),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Feather.arrow_right,
+                                              color: Colors.white,
+                                              size: 30,
+                                            ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                 ),

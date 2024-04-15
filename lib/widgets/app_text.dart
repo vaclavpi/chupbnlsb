@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class AppText extends StatelessWidget {
-  double size;
   final String text;
   final Color color;
-  AppText(
-      {super.key,
-      this.size = 16,
-      required this.text,
-      this.color = Colors.white70});
+  AppText({
+    Key? key,
+    required this.text,
+    this.color = Colors.white70,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double scaleFactor = screenWidth / 375; // Zde 375 je referenční šířka
+
+    // Upravíme velikost textu na základě šířky displeje
+    double adjustedSize = 16 * scaleFactor;
+
     return Text(
       text,
       style: TextStyle(
         fontFamily: "BB-UttaraGrotesk",
         color: color,
         fontWeight: FontWeight.w200,
-        fontSize: size,
+        fontSize: adjustedSize,
       ),
     );
   }
