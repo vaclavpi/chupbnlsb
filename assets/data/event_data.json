@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Národní svatováclavská pouť",
+        "description": "Národní svatováclavská pouť ve Staré Boleslavi je jednou z největších duchovních událostí v České republice. Každý rok 28. září do tohoto města pžijede a připutuje tisíce lidí - poutníků i turistů, aby si připomněli spojení tohoto místa s uctívaným knížetem svatým Václavem. Historie svatováclavských slavností sahá až do doby císaře Karla IV., který Starou Boleslav opakovaně navštěvoval. V 16. a 17. století začal tento svátek doprovázet i  Palladia země České. V roce 1925 byl svátek sv. Václava zákonem stanoven a o čtyři roky později, v pátek 27. září 1929, se konaly rozsáhlé oslavy k připomenutí tisíciletého výročí od úmrtí světce. Tehdy bylo všeobecně přijímáno, že vražda sv. Václava se odehrála v roce 929, nyní se tento čin datuje na rok 935.",
+        "img": "assets/img/NSVP.jpg",
+        "img1": "assets/img/welcome.jpg",
+        "img2": "assets/img/welcome.jpg",
+        "img3": "assets/img/welcome.jpg",
+        "img4": "assets/img/welcome.jpg",
+        "img5": "assets/img/welcome.jpg",
+        "location": "",
+        "googlemapyid": "",
+        "latitude": 0,
+        "longitude": 0
+    },
+    {
+        "id": 2,
+        "name": "Noc filmové hudby",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At erat pellentesque adipiscing commodo. Cras sed felis eget velit aliquet sagittis id consectetur. Duis at tellus at urna. Vestibulum sed arcu non odio euismod lacinia. Fusce id velit ut tortor. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Malesuada proin libero nunc consequat interdum varius sit. Dolor magna eget est lorem ipsum. Justo laoreet sit amet cursus.",
+        "img": "assets/img/NFH.jpg",
+        "img1": "assets/img/welcome.jpg",
+        "img2": "assets/img/welcome.jpg",
+        "img3": "assets/img/welcome.jpg",
+        "img4": "assets/img/welcome.jpg",
+        "img5": "assets/img/welcome.jpg",
+        "location": "",
+        "googlemapyid": "",
+        "latitude": 0,
+        "longitude": 0
+    },
+    {
+        "id": 3,
+        "name": "Betlémské světlo",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At erat pellentesque adipiscing commodo. Cras sed felis eget velit aliquet sagittis id consectetur. Duis at tellus at urna. Vestibulum sed arcu non odio euismod lacinia. Fusce id velit ut tortor. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Malesuada proin libero nunc consequat interdum varius sit. Dolor magna eget est lorem ipsum. Justo laoreet sit amet cursus.",
+        "img": "assets/img/NFH.jpg",
+        "img1": "assets/img/welcome.jpg",
+        "img2": "assets/img/welcome.jpg",
+        "img3": "assets/img/welcome.jpg",
+        "img4": "assets/img/welcome.jpg",
+        "img5": "assets/img/welcome.jpg",
+        "location": "",
+        "googlemapyid": "",
+        "latitude": 0,
+        "longitude": 0
+    },
+    {
+        "id": 4,
+        "name": "Den proti rakovině",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At erat pellentesque adipiscing commodo. Cras sed felis eget velit aliquet sagittis id consectetur. Duis at tellus at urna. Vestibulum sed arcu non odio euismod lacinia. Fusce id velit ut tortor. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Malesuada proin libero nunc consequat interdum varius sit. Dolor magna eget est lorem ipsum. Justo laoreet sit amet cursus.",
+        "img": "assets/img/NFH.jpg",
+        "img1": "assets/img/welcome.jpg",
+        "img2": "assets/img/welcome.jpg",
+        "img3": "assets/img/welcome.jpg",
+        "img4": "assets/img/welcome.jpg",
+        "img5": "assets/img/welcome.jpg",
+        "location": "",
+        "googlemapyid": "",
+        "latitude": 0,
+        "longitude": 0
+    }
+]

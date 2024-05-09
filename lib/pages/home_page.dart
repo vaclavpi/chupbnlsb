@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -128,6 +128,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: Center(
                                 child: Text(
                                   "občerstvení",
+                                  style: TextStyle(
+                                      fontFamily: "BB-UttaraGrotesk",
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Tab(
+                            child: Container(
+                              height: 25,
+                              width: MediaQuery.of(context).size.width / 3 - 40,
+                              decoration: BoxDecoration(
+                                color: AppColors.appColor,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "akce",
                                   style: TextStyle(
                                       fontFamily: "BB-UttaraGrotesk",
                                       fontWeight: FontWeight.w400),
@@ -289,6 +307,53 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             );
                           },
                         ),
+                        // Akce tab
+                        ListView.builder(
+                          itemCount: state.eventPlaces.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () {
+                                BlocProvider.of<AppCubits>(context)
+                                    .DetailPage(state.eventPlaces[index]);
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 20, top: 10),
+                                width: MediaQuery.of(context).size.width / 2,
+                                height: MediaQuery.of(context).size.width / 1,
+                                padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width / 2,
+                                  left: 0,
+                                ),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: AppColors.appColor,
+                                  ),
+                                  padding: EdgeInsets.only(
+                                    top: 5,
+                                    left: 12,
+                                  ),
+                                  child: Text(
+                                    state.eventPlaces[index].name,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        fontFamily: "BB-UttaraGrotesk",
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            state.eventPlaces[index].img),
+                                        fit: BoxFit.cover)),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -435,7 +500,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 onTap: () {
                                   // Navigate to another screen
                                   launch(
-                                      'https://www.youtube.com/channel/UCZtmOJoSyQK_Ls8swIPDftg');
+                                      'https://youtube.com/playlist?list=PL43GShavW8Q6asqob1hYNlPTsONQs6HYv&si=aMdf8vY-2305exYa');
                                 },
                                 child: Container(
                                   margin: EdgeInsets.only(right: 20),

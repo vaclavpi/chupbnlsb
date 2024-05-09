@@ -53,6 +53,7 @@ flutter:
   - assets/data/culture_data.json
   - assets/data/nature_data.json
   - assets/data/food_data.json
+  - assets/data/event_data.json
   - assets/img/logo.png
   - assets/img/ckl.png
   - assets/img/mapilu.jpeg
@@ -64,6 +65,11 @@ flutter:
   - assets/img/bnlsbILU3.png
   - assets/img/bnlsbILU4.png
   - assets/img/bnlsbILU5.png
+  - assets/img/KNPM.jpg
+  - assets/img/ŽH.jpg
+  - assets/img/SV.jpg
+  - assets/img/NSVP.jpg
+  - assets/img/NFH.jpg
 
 
   fonts:

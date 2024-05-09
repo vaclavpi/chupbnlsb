@@ -61,27 +61,27 @@ class WelcomePage extends StatelessWidget {
                                 AppLargeText(
                                   text: "Šikovný průvodce",
                                   color: AppColors.fourthColor,
-                                  size: 25,
+                                  size: 30,
                                 ),
                                 AppBoldText(
                                   text: "Brandýsem nad Labem-Starou Boleslaví",
                                   color: AppColors.fourthColor,
-                                  size: 18,
+                                  size: 20,
                                 ),
-                                SizedBox(height: 15),
+                                SizedBox(height: 20),
                                 Text(
                                   "Objevte kouzlo  Brandýsa nad Labem-Staré Boleslavi s tímto kapesním průvodcem, který Vás provede vybranými místy.",
                                   maxLines: 3,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 16,
+                                    fontSize: 18,
                                     fontFamily: "BB-UttaraGrotesk",
                                     fontWeight: FontWeight.w200,
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 10,
+                                  height: 25,
                                 ),
                                 GestureDetector(
                                   onTap: () {

@@ -33,14 +33,17 @@ class LoadedState extends CubitStates {
     required this.culturePlaces,
     required this.naturePlaces,
     required this.refreshmentPlaces,
+    required this.eventPlaces,
   });
 
   final List<DataModel> culturePlaces;
   final List<DataModel> naturePlaces;
   final List<DataModel> refreshmentPlaces;
+  final List<DataModel> eventPlaces;
 
   @override
-  List<Object?> get props => [culturePlaces, naturePlaces, refreshmentPlaces];
+  List<Object?> get props =>
+      [culturePlaces, naturePlaces, refreshmentPlaces, eventPlaces];
 }
 
 class MapState extends CubitStates {

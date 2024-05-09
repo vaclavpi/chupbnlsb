@@ -12,6 +12,7 @@ class AppCubits extends Cubit<CubitStates> {
   late List<DataModel> culturePlaces;
   late List<DataModel> naturePlaces;
   late List<DataModel> refreshmentPlaces;
+  late List<DataModel> eventPlaces;
 
   Future<void> getData() async {
     try {
@@ -19,10 +20,12 @@ class AppCubits extends Cubit<CubitStates> {
       culturePlaces = await data.getCultureInfo();
       naturePlaces = await data.getNatureInfo();
       refreshmentPlaces = await data.getRefreshmentInfo();
+      eventPlaces = await data.getEventInfo();
       emit(LoadedState(
         culturePlaces: culturePlaces,
         naturePlaces: naturePlaces,
         refreshmentPlaces: refreshmentPlaces,
+        eventPlaces: eventPlaces,
       ));
     } catch (e) {
       // Handle error
@@ -42,6 +45,7 @@ class AppCubits extends Cubit<CubitStates> {
       culturePlaces: culturePlaces,
       naturePlaces: naturePlaces,
       refreshmentPlaces: refreshmentPlaces,
+      eventPlaces: eventPlaces,
     ));
   }
 

@@ -53,4 +53,21 @@ class DataServices {
       return <DataModel>[];
     }
   }
+
+  Future<List<DataModel>> getEventInfo() async {
+    try {
+      // Přečtěte obsah souboru nature_data.json
+      final String response =
+          await rootBundle.loadString('assets/data/event_data.json');
+
+      // Dekódujte JSON data do seznamu
+      final List<dynamic> list = json.decode(response);
+
+      // Mapujte data na seznam objektů DataModel
+      return list.map((e) => DataModel.fromJson(e)).toList();
+    } catch (e) {
+      print(e);
+      return <DataModel>[];
+    }
+  }
 }
