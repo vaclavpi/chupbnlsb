@@ -12,7 +12,8 @@
         "location": "",
         "googlemapyid": "",
         "latitude": 0,
-        "longitude": 0
+        "longitude": 0,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 2,
@@ -27,7 +28,8 @@
         "location": "",
         "googlemapyid": "",
         "latitude": 0,
-        "longitude": 0
+        "longitude": 0,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 3,
@@ -42,7 +44,8 @@
         "location": "",
         "googlemapyid": "",
         "latitude": 0,
-        "longitude": 0
+        "longitude": 0,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 4,
@@ -57,6 +60,7 @@
         "location": "",
         "googlemapyid": "",
         "latitude": 0,
-        "longitude": 0
+        "longitude": 0,
+        "web": "https://www.staraboleslav.com/"
     }
 ]

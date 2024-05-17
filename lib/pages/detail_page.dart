@@ -7,6 +7,7 @@ import 'package:honest_guide/widgets/app_large_bold_text.dart';
 import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:flutter_tts/flutter_tts.dart'; // Import pro Text-To-Speech
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key, String? imageUrl, String? name})
@@ -22,8 +23,7 @@ class _DetailPageState extends State<DetailPage> {
   // Funkce pro Text-To-Speech
   Future<void> speakDescription(String text) async {
     FlutterTts flutterTts = FlutterTts();
-    await flutterTts.setLanguage(
-        "cs-CZ"); // Nastaví jazyk na češtinu (pokud je to váš případ)
+    await flutterTts.setLanguage("cs-CZ");
     await flutterTts.setPitch(1);
     await flutterTts.speak(text);
   }
@@ -59,17 +59,16 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white, // Barva pozadí ikony
-                        shape: BoxShape
-                            .circle, // Tvar pozadí (v tomto případě kruh)
+                        color: Colors.white,
+                        shape: BoxShape.circle,
                       ),
-                      padding: EdgeInsets.all(1.0), // Volitelný padding
+                      padding: EdgeInsets.all(1.0),
                       child: IconButton(
                         onPressed: () {
                           BlocProvider.of<AppCubits>(context).goHome();
                         },
                         icon: Icon(Icons.close_rounded),
-                        color: AppColors.thirdColor, // Barva ikony
+                        color: AppColors.thirdColor,
                       ),
                     ),
                   ],
@@ -82,17 +81,16 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white, // Barva pozadí ikony
-                        shape: BoxShape
-                            .circle, // Tvar pozadí (v tomto případě kruh)
+                        color: Colors.white,
+                        shape: BoxShape.circle,
                       ),
-                      padding: EdgeInsets.all(1.0), // Volitelný padding
+                      padding: EdgeInsets.all(1.0),
                       child: IconButton(
                         onPressed: () {
                           BlocProvider.of<AppCubits>(context).goHome();
                         },
                         icon: Icon(Icons.control_camera),
-                        color: AppColors.thirdColor, // Barva ikony
+                        color: AppColors.thirdColor,
                       ),
                     ),
                   ],
@@ -105,17 +103,38 @@ class _DetailPageState extends State<DetailPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white, // Barva pozadí ikony
-                        shape: BoxShape
-                            .circle, // Tvar pozadí (v tomto případě kruh)
+                        color: Colors.white,
+                        shape: BoxShape.circle,
                       ),
-                      padding: EdgeInsets.all(1.0), // Volitelný padding
+                      padding: EdgeInsets.all(1.0),
                       child: IconButton(
                         onPressed: () {
                           speakDescription(detail.places.description);
                         },
                         icon: Icon(Icons.volume_up),
-                        color: AppColors.thirdColor, // Barva ikony
+                        color: AppColors.thirdColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                right: 20,
+                top: 170,
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      padding: EdgeInsets.all(1.0),
+                      child: IconButton(
+                        onPressed: () {
+                          launch(detail.places.web);
+                        },
+                        icon: Icon(Icons.language),
+                        color: AppColors.thirdColor,
                       ),
                     ),
                   ],

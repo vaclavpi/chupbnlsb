@@ -12,7 +12,8 @@
         "location": "Mezi Hluchovema Houštkou",
         "googlemapyid": "",
         "latitude": 50.189858,
-        "longitude": 14.679065
+        "longitude": 14.679065,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 2,
@@ -27,7 +28,8 @@
         "location": "Houštka",
         "googlemapyid": "",
         "latitude": 50.191047,
-        "longitude": 14.687723
+        "longitude": 14.687723,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 3,
@@ -42,7 +44,8 @@
         "location": "Houštka",
         "googlemapyid": "",
         "latitude": 50.189278,
-        "longitude": 14.687755
+        "longitude": 14.687755,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 4,
@@ -57,7 +60,8 @@
         "location": "Hluchov",
         "googlemapyid": "",
         "latitude": 50.185998,
-        "longitude": 14.664844
+        "longitude": 14.664844,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 5,
@@ -72,7 +76,8 @@
         "location": "U zámku Bradýs",
         "googlemapyid": "",
         "latitude": 50.186012,
-        "longitude": 14.667826
+        "longitude": 14.667826,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 6,
@@ -87,7 +92,8 @@
         "location": "ulice u Nemocnice",
         "googlemapyid": "",
         "latitude": 50.186942,
-        "longitude": 14.654104
+        "longitude": 14.654104,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 7,
@@ -102,6 +108,7 @@
         "location": "lesopark Ostrůvek",
         "googlemapyid": "",
         "latitude": 50.190040,
-        "longitude": 14.663948
+        "longitude": 14.663948,
+        "web": "https://www.staraboleslav.com/"
     }
 ]

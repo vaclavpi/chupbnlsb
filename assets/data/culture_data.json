@@ -12,7 +12,8 @@
         "location": "Komenského",
         "googlemapyid": "hIJ4R3JerDxC0cRmlQrBJUrf_U",
         "latitude": 50.196026,
-        "longitude": 14.676506
+        "longitude": 14.676506,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 2,
@@ -27,7 +28,8 @@
         "location": "Maxe Švabinského",
         "googlemapyid": "",
         "latitude": 50.194584,
-        "longitude": 14.672295
+        "longitude": 14.672295,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 3,
@@ -42,7 +44,8 @@
         "location": "U sv. Vavřince 213/2",
         "googlemapyid": "",
         "latitude": 50.188131,
-        "longitude": 14.660702
+        "longitude": 14.660702,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 4,
@@ -57,7 +60,8 @@
         "location": "Maxe Švabinského",
         "googlemapyid": "",
         "latitude": 50.191710,
-        "longitude": 14.668583
+        "longitude": 14.668583,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 5,
@@ -72,7 +76,8 @@
         "location": "Lázeňská 70/5",
         "googlemapyid": "",
         "latitude": 50.194227,
-        "longitude": 14.676978
+        "longitude": 14.676978,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 6,
@@ -87,7 +92,8 @@
         "location": "Na Celné",
         "googlemapyid": "",
         "latitude": 50.187822,
-        "longitude": 14.667091
+        "longitude": 14.667091,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 7,
@@ -102,7 +108,8 @@
         "location": "Zámecká zahrada",
         "googlemapyid": "",
         "latitude": 50.185998,
-        "longitude": 14.664844
+        "longitude": 14.664844,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 8,
@@ -117,7 +124,8 @@
         "location": "Kostelecká",
         "googlemapyid": "",
         "latitude": 50.188996,
-        "longitude": 14.654083
+        "longitude": 14.654083,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 9,
@@ -132,7 +140,8 @@
         "location": "Hřbitov Brandýs nad Labem",
         "googlemapyid": "",
         "latitude": 50.189845,
-        "longitude": 14.656641
+        "longitude": 14.656641,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 10,
@@ -147,7 +156,8 @@
         "location": "Na Potoce 140/8",
         "googlemapyid": "",
         "latitude": 50.187935,
-        "longitude": 14.657532
+        "longitude": 14.657532,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 11,
@@ -162,7 +172,8 @@
         "location": "Na Nižším hrádku 170/27",
         "googlemapyid": "",
         "latitude": 50.188866,
-        "longitude": 14.661078
+        "longitude": 14.661078,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 12,
@@ -177,7 +188,8 @@
         "location": "Pod Hrádkem",
         "googlemapyid": "",
         "latitude": 50.187846,
-        "longitude": 14.664195
+        "longitude": 14.664195,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 13,
@@ -192,13 +204,14 @@
         "location": "F. X. Procházky",
         "googlemapyid": "",
         "latitude": 50.187379,
-        "longitude": 14.661786
+        "longitude": 14.661786,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 14,
         "name": "Zámek Brandýs nad Labem",
         "description": "Prostě popisek",
-        "img": "assets/img/welcome.jpg",
+        "img": "assets/img/zbnl.jpg",
         "img1": "assets/img/welcome.jpg",
         "img2": "assets/img/welcome.jpg",
         "img3": "assets/img/welcome.jpg",
@@ -207,7 +220,8 @@
         "location": "Plantáž 402/8",
         "googlemapyid": "",
         "latitude": 50.187245,
-        "longitude": 14.666249
+        "longitude": 14.666249,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 15,
@@ -222,7 +236,8 @@
         "location": "Mariánské náměstí",
         "googlemapyid": "",
         "latitude": 50.195686,
-        "longitude": 14.674768
+        "longitude": 14.674768,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 16,
@@ -237,7 +252,8 @@
         "location": "Mariánské náměstí",
         "googlemapyid": "",
         "latitude": 50.195858,
-        "longitude": 14.674972
+        "longitude": 14.674972,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 17,
@@ -252,7 +268,8 @@
         "location": "nám. sv. Václava",
         "googlemapyid": "",
         "latitude": 50.194725,
-        "longitude": 14.672847
+        "longitude": 14.672847,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 18,
@@ -267,7 +284,8 @@
         "location": "Maxe Švabinského 109/11",
         "googlemapyid": "",
         "latitude": 50.194564,
-        "longitude": 14.672735
+        "longitude": 14.672735,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 19,
@@ -282,7 +300,8 @@
         "location": "nám. sv. Václava 105/1",
         "googlemapyid": "",
         "latitude": 50.194945,
-        "longitude": 14.673818
+        "longitude": 14.673818,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 20,
@@ -297,7 +316,8 @@
         "location": "Boleslavská",
         "googlemapyid": "",
         "latitude": 50.197366,
-        "longitude": 14.678341
+        "longitude": 14.678341,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 21,
@@ -312,7 +332,8 @@
         "location": "Jungmannova 164/1",
         "googlemapyid": "",
         "latitude": 50.195989,
-        "longitude": 14.678067
+        "longitude": 14.678067,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 22,
@@ -327,7 +348,8 @@
         "location": "Komenského",
         "googlemapyid": "",
         "latitude": 50.195875,
-        "longitude": 14.677166
+        "longitude": 14.677166,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 23,
@@ -342,6 +364,7 @@
         "location": "Mariánské náměstí",
         "googlemapyid": "",
         "latitude": 50.195875,
-        "longitude": 14.676012
+        "longitude": 14.676012,
+        "web": "https://www.staraboleslav.com/"
     }
 ]

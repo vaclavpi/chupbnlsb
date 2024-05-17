@@ -6,7 +6,6 @@ import 'package:honest_guide/misc/colors.dart';
 import 'package:honest_guide/pages/detail_page.dart';
 import 'package:honest_guide/pages/home_page.dart';
 import 'package:honest_guide/pages/navpages/map_page.dart';
-import 'package:honest_guide/pages/navpages/podcast.dart';
 import 'package:honest_guide/pages/welcome_page.dart';
 import 'package:honest_guide/pages/navpages/about_page.dart';
 
@@ -34,9 +33,6 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
           }
           if (state is AboutPageState) {
             return AboutPage();
-          }
-          if (state is PodcastPageState) {
-            return PodcastPage();
           }
           if (state is MapState) {
             return MapPage();

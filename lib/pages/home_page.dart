@@ -547,6 +547,94 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               child: GestureDetector(
                                 onTap: () {
                                   // Navigate to another screen
+                                  launch(
+                                      'https://www.facebook.com/brandysnadlabemstaraboleslav');
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 20),
+                                  height:
+                                      MediaQuery.of(context).size.height / 9,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/img/fb.png'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  child: Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Container(
+                                      padding: EdgeInsets.all(10),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: AppColors.appColor,
+                                      ),
+                                      child: Text(
+                                        'Facebook města ',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            //--------------------------------------
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Navigate to another screen
+                                  launch(
+                                      'https://www.youtube.com/@mestobrandysnadlabem-stara450');
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 20),
+                                  height:
+                                      MediaQuery.of(context).size.height / 9,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/img/yt.png'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  child: Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Container(
+                                      padding: EdgeInsets.all(10),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: AppColors.appColor,
+                                      ),
+                                      child: Text(
+                                        'YouTube města',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                            fontFamily: "BB-UttaraGrotesk",
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Navigate to another screen
                                   launch('https://vaclavpi.github.io/');
                                 },
                                 child: Container(

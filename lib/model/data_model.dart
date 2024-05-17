@@ -11,23 +11,26 @@ class DataModel {
   String? img8;
   String description;
   String location;
-  String googlemapyid;
+  String? googlemapyid; // This can be null in your JSON data
+  String web;
 
   DataModel({
     required this.name,
     required this.img,
-    required this.img1,
-    required this.img2,
-    required this.img3,
-    required this.img4,
-    required this.img5,
-    required this.img6,
-    required this.img7,
-    required this.img8,
+    this.img1,
+    this.img2,
+    this.img3,
+    this.img4,
+    this.img5,
+    this.img6,
+    this.img7,
+    this.img8,
     required this.description,
     required this.location,
-    required this.googlemapyid,
+    this.googlemapyid,
+    required this.web,
   });
+
   factory DataModel.fromJson(Map<String, dynamic> json) {
     return DataModel(
       name: json["name"],
@@ -43,6 +46,7 @@ class DataModel {
       description: json["description"],
       location: json["location"],
       googlemapyid: json["googlemapyid"],
+      web: json["web"],
     );
   }
 }

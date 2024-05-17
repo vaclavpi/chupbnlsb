@@ -12,7 +12,8 @@
         "location": "Jungmannova 246/12",
         "googlemapyid": "",
         "latitude": 50.194897,
-        "longitude": 14.678228
+        "longitude": 14.678228,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 2,
@@ -27,7 +28,8 @@
         "location": "nám. sv. Václava 62/10",
         "googlemapyid": "",
         "latitude": 50.195343,
-        "longitude": 14.673100
+        "longitude": 14.673100,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 3,
@@ -42,7 +44,8 @@
         "location": "Zápská 1848",
         "googlemapyid": "",
         "latitude": 50.178368,
-        "longitude": 14.670144
+        "longitude": 14.670144,
+        "web": "https://www.staraboleslav.com/"
     }
     ,
     {
@@ -58,7 +61,8 @@
         "location": "Maxe Švabinského 140/35",
         "googlemapyid": "",
         "latitude": 50.189580,
-        "longitude": 14.667424
+        "longitude": 14.667424,
+        "web": "https://www.staraboleslav.com/"
     }
     ,
     {
@@ -74,7 +78,8 @@
         "location": "Michalovická 258/3",
         "googlemapyid": "",
         "latitude": 50.187018,
-        "longitude": 14.659232
+        "longitude": 14.659232,
+        "web": "https://www.staraboleslav.com/"
     }
     ,
     {
@@ -90,7 +95,8 @@
         "location": "Lázeňská 92/4",
         "googlemapyid": "",
         "latitude": 50.194605,
-        "longitude": 14.676383
+        "longitude": 14.676383,
+        "web": "https://www.staraboleslav.com/"
     }
     ,
     {
@@ -106,7 +112,8 @@
         "location": "Mariánské náměstí 6/6",
         "googlemapyid": "",
         "latitude": 50.195982,
-        "longitude": 14.674532
+        "longitude": 14.674532,
+        "web": "https://www.staraboleslav.com/"
     }
     ,
     {
@@ -122,7 +129,8 @@
         "location": "Pražská 1834",
         "googlemapyid": "",
         "latitude": 50.184847,
-        "longitude": 14.659404
+        "longitude": 14.659404,
+        "web": "https://www.staraboleslav.com/"
     }
     ,
     {
@@ -138,7 +146,8 @@
         "location": "Pražská 66/1",
         "googlemapyid": "",
         "latitude": 50.185191,
-        "longitude": 14.659742
+        "longitude": 14.659742,
+        "web": "https://www.staraboleslav.com/"
     },
     {
         "id": 10,
@@ -153,6 +162,7 @@
         "location": "Masarykovo náměstí 60/17",
         "googlemapyid": "",
         "latitude": 50.185751,
-        "longitude": 14.660783
+        "longitude": 14.660783,
+        "web": "https://www.staraboleslav.com/"
     }
 ]
