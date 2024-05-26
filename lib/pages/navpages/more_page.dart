@@ -25,6 +25,9 @@ class MorePage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: 50,
+                      ),
                       AppLargeText(
                         text: "Prozkoumej",
                         size: 35,
@@ -45,24 +48,16 @@ class MorePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Akce po kliknutí na tlačítko
-                },
-                child: Text('Přihlásit se'),
-              ),
-            ),
             SizedBox(height: 20),
             ListTile(
               leading: Icon(Icons.info),
               title: Text('O aplikaci'),
               onTap: () {
                 // Navigate to another screen
-                launch('https://github.com/vaclavpi/chupbnlsb/');
+                launch('https://github.com/vaclavpi/chupbnlsb/wiki');
               },
             ),
+            SizedBox(height: 20),
             ListTile(
               leading: Icon(Icons.bug_report),
               title: Text('Nahlášení chyby nebo tip na vylepšení'),
@@ -71,6 +66,7 @@ class MorePage extends StatelessWidget {
                 launch('https://github.com/vaclavpi/chupbnlsb/issues');
               },
             ),
+            SizedBox(height: 20),
             ListTile(
               leading: Icon(Icons.add),
               title: Text('Přidat nové místo'),
@@ -79,6 +75,7 @@ class MorePage extends StatelessWidget {
                 launch('https://github.com/vaclavpi/chupbnlsb/issues');
               },
             ),
+            SizedBox(height: 20),
             ListTile(
               leading: Icon(Icons.developer_mode),
               title: Text('Stránky vývojáře'),
@@ -87,25 +84,13 @@ class MorePage extends StatelessWidget {
                 launch('https://vaclavpi.github.io/');
               },
             ),
+            SizedBox(height: 20),
             ListTile(
               leading: Icon(Icons.policy),
               title: Text('Podmínky služby'),
               onTap: () {
-                // Akce po kliknutí na položku
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.privacy_tip),
-              title: Text('Ochrana osobních údajů'),
-              onTap: () {
-                // Akce po kliknutí na položku
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.card_giftcard),
-              title: Text('Dárkové poukazy'),
-              onTap: () {
-                // Akce po kliknutí na položku
+                launch(
+                    'https://github.com/vaclavpi/chupbnlsb/wiki/Podm%C3%ADnky-vyu%C5%BE%C3%ADv%C3%A1n%C3%AD-slu%C5%BEby-a-prohl%C3%A1%C5%A1en%C3%AD-o-slu%C5%BEb%C4%9B');
               },
             ),
           ],

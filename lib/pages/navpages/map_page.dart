@@ -132,6 +132,9 @@ class _MapPageState extends State<MapPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: 50,
+                      ),
                       AppLargeText(
                         text: "Prozkoumej",
                         size: 35,

@@ -23,6 +23,7 @@ class _DetailPageState extends State<DetailPage> {
   double starRating = 0.0;
   bool visited = false;
   bool isFavorite = false; // Přidána proměnná pro stav oblíbených
+  int _selectedIndex = 0; // Definovat proměnnou _selectedIndex
 
   // Placeholder data for demonstration
   late DetailState detail;
@@ -287,6 +288,24 @@ class _DetailPageState extends State<DetailPage> {
                           color: AppColors.mainColor,
                         ),
                       ),
+                      SizedBox(height: 10),
+                      AppLargeText(
+                        text: "Vhodné pro",
+                        color: AppColors.thirdColor,
+                        size: 23,
+                      ),
+                      SizedBox(height: 10),
+                      AppLargeText(
+                        text: "Objevujte s respektem",
+                        color: AppColors.thirdColor,
+                        size: 23,
+                      ),
+                      SizedBox(height: 10),
+                      AppLargeText(
+                        text: "Fotogalerie",
+                        color: AppColors.thirdColor,
+                        size: 23,
+                      ),
                       SizedBox(height: 5),
                       Container(
                         height: 100,
@@ -322,6 +341,60 @@ class _DetailPageState extends State<DetailPage> {
               ],
             ),
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: (int index) {
+            setState(() {
+              _selectedIndex = index;
+              if (index == 0) {
+                // Pokud byla vybrána druhá položka (mapa)
+                BlocProvider.of<AppCubits>(context).goHome(); // Spustit MapPage
+              } else if (index == 1) {
+                // Pokud byla vybrána druhá položka (mapa)
+                BlocProvider.of<AppCubits>(context)
+                    .MapPage(); // Spustit MapPage
+              } else if (index == 2) {
+                // Pokud byla vybrána druhá položka (mapa)
+                BlocProvider.of<AppCubits>(context).goHome(); // Spustit MapPage
+              } else if (index == 3) {
+                // Pokud byla vybrána druhá položka (mapa)
+                BlocProvider.of<AppCubits>(context)
+                    .goAbout(); // Spustit MapPage
+              }
+            });
+          },
+          selectedItemColor: AppColors.fourthColor,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.place,
+                color: AppColors.thirdColor,
+              ),
+              label: 'Místa',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.map,
+                color: AppColors.thirdColor,
+              ),
+              label: 'Mapa',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite,
+                color: AppColors.thirdColor,
+              ),
+              label: 'Oblíbené',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.more_horiz,
+                color: AppColors.thirdColor,
+              ),
+              label: 'Více',
+            ),
+          ],
         ),
       );
     });
