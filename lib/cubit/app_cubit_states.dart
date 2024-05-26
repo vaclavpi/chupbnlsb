@@ -13,7 +13,7 @@ class WelcomeState extends CubitStates {
   List<Object?> get props => [];
 }
 
-class AboutPageState extends CubitStates {
+class MorePageState extends CubitStates {
   @override
   List<Object?> get props => [];
 }

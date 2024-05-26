@@ -8,6 +8,8 @@ import 'package:honest_guide/widgets/app_bold_text.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:flutter_tts/flutter_tts.dart'; // Import pro Text-To-Speech
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:convert';
+import 'dart:io'; // Import pro práci se soubory
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key, String? imageUrl, String? name})
@@ -19,6 +21,11 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   double starRating = 0.0;
+  bool visited = false;
+  bool isFavorite = false; // Přidána proměnná pro stav oblíbených
+
+  // Placeholder data for demonstration
+  late DetailState detail;
 
   // Funkce pro Text-To-Speech
   Future<void> speakDescription(String text) async {
@@ -28,124 +35,162 @@ class _DetailPageState extends State<DetailPage> {
     await flutterTts.speak(text);
   }
 
+// Funkce pro uložení do oblíbených
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite; // Přepínáme stav ikony
+    });
+    // Zde zavoláme funkci pro uložení do databáze s aktuálním stavem isFavorite
+    saveToDatabase(isFavorite);
+  }
+
+  // Funkce pro uložení do databáze
+  void saveToDatabase(bool isFavorite) {
+    saveToFavorites(isFavorite, detail.places.name);
+  }
+
+  void saveToFavorites(bool isFavorite, String placeName) {
+    // Načtení existujících oblíbených položek
+    var favorites = <String, dynamic>{};
+    File favoritesFile = File('favorites.json');
+    if (favoritesFile.existsSync()) {
+      var jsonString = favoritesFile.readAsStringSync();
+      favorites = json.decode(jsonString);
+    }
+
+    // Přidání nebo aktualizace stavu oblíbené položky
+    favorites[placeName] = isFavorite;
+
+    // Uložení zpět do souboru
+    var jsonString = json.encode(favorites);
+    favoritesFile.writeAsStringSync(jsonString);
+
+    print('Místo $placeName bylo uloženo do oblíbených: $isFavorite');
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubits, CubitStates>(builder: (context, state) {
       DetailState detail = state as DetailState;
       return Scaffold(
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: Stack(
-            children: [
-              Positioned(
-                left: 0,
-                right: 0,
-                child: Container(
-                  width: double.infinity,
-                  height: 350,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(detail.places.img),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 20,
-                top: 50,
-                child: Row(
+        body: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              children: [
+                Stack(
                   children: [
                     Container(
+                      width: double.infinity,
+                      height: 350,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage(detail.places.img),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      padding: EdgeInsets.all(1.0),
-                      child: IconButton(
-                        onPressed: () {
-                          BlocProvider.of<AppCubits>(context).goHome();
-                        },
-                        icon: Icon(Icons.close_rounded),
-                        color: AppColors.thirdColor,
+                    ),
+                    Positioned(
+                      left: 20,
+                      top: 50,
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            padding: EdgeInsets.all(1.0),
+                            child: IconButton(
+                              onPressed: () {
+                                BlocProvider.of<AppCubits>(context).goHome();
+                              },
+                              icon: Icon(Icons.close_rounded),
+                              color: AppColors.thirdColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      top: 50,
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: visited
+                                  ? AppColors.fourthColor
+                                  : Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            padding: EdgeInsets.all(1.0),
+                            child: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    visited = !visited;
+                                  });
+                                  // Implementace funkce pro označení jako navštíveného
+                                },
+                                icon: Icon(visited
+                                    ? Icons.check
+                                    : Icons.check_box_outline_blank),
+                                color: visited
+                                    ? Colors.white
+                                    : AppColors.thirdColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      top: 170,
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            padding: EdgeInsets.all(1.0),
+                            child: IconButton(
+                              onPressed: () {
+                                speakDescription(detail.places.description);
+                              },
+                              icon: Icon(Icons.volume_up),
+                              color: AppColors.thirdColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      top: 110,
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            padding: EdgeInsets.all(1.0),
+                            child: IconButton(
+                              onPressed: () {
+                                launch(detail.places.web);
+                              },
+                              icon: Icon(Icons.language),
+                              color: AppColors.thirdColor,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ),
-              Positioned(
-                right: 20,
-                top: 50,
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      padding: EdgeInsets.all(1.0),
-                      child: IconButton(
-                        onPressed: () {
-                          BlocProvider.of<AppCubits>(context).goHome();
-                        },
-                        icon: Icon(Icons.control_camera),
-                        color: AppColors.thirdColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
-                right: 20,
-                top: 110,
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      padding: EdgeInsets.all(1.0),
-                      child: IconButton(
-                        onPressed: () {
-                          speakDescription(detail.places.description);
-                        },
-                        icon: Icon(Icons.volume_up),
-                        color: AppColors.thirdColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
-                right: 20,
-                top: 170,
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      padding: EdgeInsets.all(1.0),
-                      child: IconButton(
-                        onPressed: () {
-                          launch(detail.places.web);
-                        },
-                        icon: Icon(Icons.language),
-                        color: AppColors.thirdColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
-                top: 310,
-                child: Container(
+                Container(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height - 320 - 1,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -190,7 +235,7 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           buildStarRating(starRating),
                           Text(
-                            '$starRating (Mapy Google)',
+                            '$starRating',
                             style: TextStyle(
                               fontSize: 14.0,
                               color: AppColors.thirdColor,
@@ -199,19 +244,47 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                       SizedBox(height: 30),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          buildIconButton(
+                            icon: Icons.navigation,
+                            label: "Navigovat",
+                            onTap: () {
+                              // Implementace funkce pro navigaci
+                            },
+                          ),
+                          buildIconButton(
+                            icon: Icons.favorite,
+                            label: "Uložit do oblíbených",
+                            onTap: toggleFavorite, // Opraveno zde
+                          ),
+                          buildIconButton(
+                            icon: visited
+                                ? Icons.check
+                                : Icons.check_box_outline_blank,
+                            label: visited ? "Navštíveno" : "Navštíveno?",
+                            onTap: () {
+                              setState(() {
+                                visited = !visited;
+                              });
+// Implementace funkce pro označení jako navštíveného
+                            },
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 30),
                       AppLargeText(
-                        text: "O tomto objektu:",
+                        text: "Popis",
                         color: AppColors.thirdColor,
                         size: 23,
                       ),
                       SizedBox(height: 10),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: AppText(
-                            text: detail.places.description,
-                            color: AppColors.mainColor,
-                          ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: AppText(
+                          text: detail.places.description,
+                          color: AppColors.mainColor,
                         ),
                       ),
                       SizedBox(height: 5),
@@ -246,8 +319,8 @@ class _DetailPageState extends State<DetailPage> {
                     ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );
@@ -270,6 +343,31 @@ class _DetailPageState extends State<DetailPage> {
     }
     return Row(
       children: stars,
+    );
+  }
+
+  Widget buildIconButton(
+      {required IconData icon,
+      required String label,
+      required Function onTap}) {
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {
+            onTap();
+          },
+          icon: Icon(icon),
+          color: AppColors.thirdColor,
+        ),
+        SizedBox(height: 5),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 12.0,
+            color: AppColors.thirdColor,
+          ),
+        ),
+      ],
     );
   }
 }

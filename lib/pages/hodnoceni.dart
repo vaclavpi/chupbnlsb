@@ -11,8 +11,10 @@ class StarCountScreen extends StatefulWidget {
 }
 
 class _StarCountScreenState extends State<StarCountScreen> {
-  final String apiKey = 'AIzaSyCNyhuZsblc9Ko27fQQ_usslco3N7ZcFkU'; // Nahraďte svým API klíčem
-  final String placeId = 'ChIJdcS7XMLxC0cRtBY7hqc6oUc'; // Nahraďte dotazem na místo
+  final String apiKey =
+      'AIzaSyCNyhuZsblc9Ko27fQQ_usslco3N7ZcFkU'; // Nahraďte svým API klíčem
+  final String placeId =
+      'ChIJdcS7XMLxC0cRtBY7hqc6oUc'; // Nahraďte dotazem na místo
 
   double starRating = 0.0;
 

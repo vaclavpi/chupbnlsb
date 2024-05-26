@@ -16,6 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController _tabController;
+  int _selectedIndex = 0; // Definovat proměnnou _selectedIndex
 
   @override
   void initState() {
@@ -731,6 +732,58 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: Text("ERROR: Chyba při načítání 😒 | 0x00001"));
           }
         },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (int index) {
+          setState(() {
+            _selectedIndex = index;
+            if (index == 0) {
+              // Pokud byla vybrána druhá položka (mapa)
+              BlocProvider.of<AppCubits>(context).goHome(); // Spustit MapPage
+            } else if (index == 1) {
+              // Pokud byla vybrána druhá položka (mapa)
+              BlocProvider.of<AppCubits>(context).MapPage(); // Spustit MapPage
+            } else if (index == 2) {
+              // Pokud byla vybrána druhá položka (mapa)
+              BlocProvider.of<AppCubits>(context).goHome(); // Spustit MapPage
+            } else if (index == 3) {
+              // Pokud byla vybrána druhá položka (mapa)
+              BlocProvider.of<AppCubits>(context).goAbout(); // Spustit MapPage
+            }
+          });
+        },
+        selectedItemColor: AppColors.fourthColor,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.place,
+              color: AppColors.thirdColor,
+            ),
+            label: 'Místa',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.map,
+              color: AppColors.thirdColor,
+            ),
+            label: 'Mapa',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite,
+              color: AppColors.thirdColor,
+            ),
+            label: 'Oblíbené',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.more_horiz,
+              color: AppColors.thirdColor,
+            ),
+            label: 'Více',
+          ),
+        ],
       ),
     );
   }

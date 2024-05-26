@@ -50,7 +50,7 @@ class AppCubits extends Cubit<CubitStates> {
   }
 
   goAbout() {
-    emit(AboutPageState());
+    emit(MorePageState());
   }
 
   goPodcast() {

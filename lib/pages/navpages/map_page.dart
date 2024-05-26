@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:honest_guide/misc/colors.dart';
 import 'package:honest_guide/pages/navpages/offline_map.dart';
+import 'package:honest_guide/widgets/app_bold_text.dart';
+import 'package:honest_guide/widgets/app_large_bold_text.dart';
 import 'package:icons_flutter/icons_flutter.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:honest_guide/cubit/app_cubit.dart';
@@ -118,44 +120,104 @@ class _MapPageState extends State<MapPage> {
             ],
           ),
           Positioned(
-            top: 50.0,
-            right: 16.0,
-            child: SizedBox(
-              width: 64.0,
-              height: 64.0,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.filter_alt_outlined,
-                    color: AppColors.thirdColor,
-                    size: 32.0,
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppLargeText(
+                        text: "Prozkoumej",
+                        size: 35,
+                        color: AppColors.fourthColor,
+                      ),
+                      AppBoldText(
+                        text: "Brandýs nad Labem-Starou Boleslav",
+                        size: 16,
+                        color: AppColors.fourthColor,
+                      ),
+                    ],
                   ),
-                  onPressed: () {
-                    _showDatabaseSelectionDialog();
-                  },
-                ),
+                  Image.asset(
+                    'assets/img/logoTB.png',
+                    width: 107,
+                  ),
+                ],
               ),
             ),
           ),
           Positioned(
-            top: 50.0,
-            left: 16.0,
-            child: SizedBox(
-              width: 64.0,
-              height: 64.0,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.home,
-                    color: AppColors.thirdColor,
-                    size: 32.0,
+            top: 180.0,
+            right: 16.0,
+            child: FloatingActionButton(
+              onPressed: () {
+                _showDatabaseSelectionDialog();
+              },
+              child: Icon(Icons.filter_alt),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Divider(height: 0),
+                  BottomNavigationBar(
+                    currentIndex: 1,
+                    onTap: (int index) {
+                      final appCubits = BlocProvider.of<AppCubits>(context);
+                      if (index == 0) {
+                        appCubits.goHome();
+                      } else if (index == 1) {
+                        appCubits.MapPage();
+                      } else if (index == 2) {
+                        appCubits.MapPage();
+                      } else if (index == 3) {
+                        appCubits.goAbout();
+                      }
+                    },
+                    selectedItemColor: AppColors.fourthColor,
+                    items: [
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          Icons.place,
+                          color: AppColors.thirdColor,
+                        ),
+                        label: 'Místa',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          Icons.map,
+                          color: AppColors.thirdColor,
+                        ),
+                        label: 'Mapa',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          Icons.favorite,
+                          color: AppColors.thirdColor,
+                        ),
+                        label: 'Oblíbené',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(
+                          Icons.more_horiz,
+                          color: AppColors.thirdColor,
+                        ),
+                        label: 'Více',
+                      ),
+                    ],
                   ),
-                  onPressed: () {
-                    BlocProvider.of<AppCubits>(context).goHome();
-                  },
-                ),
+                ],
               ),
             ),
           ),
