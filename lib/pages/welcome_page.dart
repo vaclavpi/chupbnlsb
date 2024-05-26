@@ -71,7 +71,7 @@ class WelcomePage extends StatelessWidget {
                                 SizedBox(height: 20),
                                 Text(
                                   "Objevte kouzlo  Brandýsa nad Labem-Staré Boleslavi s tímto kapesním průvodcem, který Vás provede vybranými místy.",
-                                  maxLines: 3,
+                                  maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     color: Colors.black,
